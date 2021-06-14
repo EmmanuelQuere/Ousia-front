@@ -5,7 +5,7 @@ const Login = () => {
     const myBody = new FormData(event.target);
     const myHeaders = new Headers();
 
-    fetch("http://localhost:3000/users/sign_in.json", {
+    fetch(`${process.env.url}/users/sign_in.json`, {
       method: "POST",
       headers: myHeaders,
       body: myBody
