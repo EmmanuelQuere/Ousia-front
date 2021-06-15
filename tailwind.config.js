@@ -15,10 +15,10 @@ module.exports = {
   },
   plugins: [
     plugin(function ({ addVariant, e, postcss }) {
-      addVariant('firefox', ({ container, separator }) => {
+      addVariant("firefox", ({ container, separator }) => {
         const isFirefoxRule = postcss.atRule({
-          name: '-moz-document',
-          params: 'url-prefix()',
+          name: "-moz-document",
+          params: "url-prefix()",
         });
         isFirefoxRule.append(container.nodes);
         container.append(isFirefoxRule);
