@@ -13,7 +13,7 @@ const DisconnectButton = () => {
   };
 
   return (
-    <button onClick={logOutUser} className="border rounded bg-white hover:bg-gray-100">Se déconnecter</button>
+    <button onClick={logOutUser}>Se déconnecter</button>
   )
 };
 
