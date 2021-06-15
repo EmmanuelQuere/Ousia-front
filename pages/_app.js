@@ -2,6 +2,7 @@ import store from '../redux/store';
 import Layout from '../components/Layout'
 import { Provider } from 'react-redux';
 import '../styles/globals.css';
+import '../styles/tailwind_utilities.css';
 import Head from "next/head";
 
 function MyApp({ Component, pageProps }) {
