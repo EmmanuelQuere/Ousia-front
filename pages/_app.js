@@ -1,11 +1,8 @@
-import '../styles/globals.scss'
+import store from '../redux/store';
 import Layout from '../components/Layout'
-import 'bootstrap/dist/css/bootstrap.css'
+import { Provider } from 'react-redux';
+import '../styles/globals.css';
 import Head from "next/head";
-
-
-
-
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -13,10 +10,12 @@ function MyApp({ Component, pageProps }) {
   <Head>
      <meta name="viewport" content="width=device-width, initial-scale=1" />
   </Head>
-  <Layout>
-    <Component {...pageProps} />
-  </Layout>
-  
+  <Provider store={store}>
+    <Layout>
+      <Component {...pageProps} />
+    </Layout>
+  </Provider>
+
   </>
   );
   }
