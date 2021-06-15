@@ -4,7 +4,7 @@ import styles from '../../styles/Shop.module.scss'
 
 
 export const getServerSideProps = async (context) => {
-  const res = await fetch(`http://localhost:3000/items.json`);
+  const res = await fetch(`${process.env.url}/items.json`);
   const data = await res.json();
   return {
       props: {items: data}
