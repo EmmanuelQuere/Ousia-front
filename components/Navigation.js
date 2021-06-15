@@ -1,3 +1,6 @@
+import DisconnectButton from './DisconnectButton';
+import Link from 'next/link'
+
 const Navigation = () => {
 
   return (
@@ -11,7 +14,7 @@ const Navigation = () => {
       <ul className='inline-flex lg:flex lg:items-center lg:w-auto'>
         <li><a href="#">Se connecter</a></li>
         <li><a href="#">S'inscrire</a></li>
-        <li><a href="#">Se déconnecter</a></li>
+        <DisconnectButton />
       </ul>
     </nav>
   )
