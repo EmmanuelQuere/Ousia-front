@@ -1,7 +1,5 @@
-import ProductCard from "../../components/ProductCard"
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
+import ProductCardEven from "../../components/ProductCardEven"
+import ProductCardOdd from "../../components/ProductCardOdd"
 import styles from '../../styles/Shop.module.scss'
 
 
@@ -13,17 +11,17 @@ export const getServerSideProps = async (context) => {
   }
 }
 
-const Shop = ({items}) => {
+const Shop = ({ items }) => {
   return (
-    <Container className="p-5">
-      <Row className="text-center pt-5">
-        <h2>Nos produits</h2>
+    <div className="container mx-auto p-20">
+      <div>
+        <h2 className={styles.title}>Nos produits</h2>
         <hr className={styles.divider}/>
-      </Row>
-      <Row xs={1} md={1} lg={2}>
-        {items.map(item => <Col key={`col_${item.id}`}><ProductCard key={`card_${item.id}`} item={item}/></Col>)}
-      </Row>
-    </Container>
+      </div>
+      <section className="grid lg:grid-cols-2 grid-cols-1 gap-4 antialiased">
+        {items.map((item, index) => (index + 1) % 2 === 0 ? <div key={`col_${item.id}`}><ProductCardEven key={`card_${item.id}`} item={item} index={index+1}/></div> : <div key={`col_${item.id}`}><ProductCardOdd key={`card_${item.id}`} item={item} index={index+1}/></div>)}
+      </section>
+    </div>
   )
 }
 
