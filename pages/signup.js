@@ -42,21 +42,23 @@ const Signup = () => {
   };
 
   return (
-    <div>
-      <h2>Sign Up</h2>
-      <form onSubmit={submitInfo}>
-      <label htmlFor="email">
-      E-mail
-      </label>
-      <input name="user[email]" id="email" type="text" placeholder="E-mail"></input>
-      <label htmlFor="password">
-      Mot de passe (6 caractères minimum)
-      </label>
-      <input name="user[password]" id="password" type="password" placeholder="******************"></input>
-      <button type="submit">
-      S'inscrire
-      </button>
-      </form>
+    <div className="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
+      <div className="bg-white px-6 py-8 rounded shadow-md text-black w-full">
+        <h1 className="mb-8 text-3xl text-center">S'inscrire</h1>
+        <form onSubmit={submitInfo}>
+        <label htmlFor="email" className="hidden">
+        E-mail
+        </label>
+        <input name="user[email]" id="email" type="text" placeholder="Email" className="block border border-grey-light w-full p-3 rounded mb-4"></input>
+        <label htmlFor="password" className="hidden">
+        Mot de passe (6 caractères minimum)
+        </label>
+        <input name="user[password]" id="password" type="password" placeholder="Mot de passe (6 caractères min.)" className="block border border-grey-light w-full p-3 rounded mb-4"></input>
+        <button type="submit" className="w-full text-center py-3 rounded bg-green-500 text-white hover:bg-green-dark focus:outline-none my-1">
+        S'inscrire
+        </button>
+        </form>
+      </div>
     </div>
   )
 };
