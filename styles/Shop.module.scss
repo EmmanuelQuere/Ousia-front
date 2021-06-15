@@ -10,6 +10,31 @@
   text-transform: uppercase;
 }
 
+.subtitle {
+  line-height: 1.15;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.confirmButton {
+  @apply bg-indigo-700;
+  @apply px-5;
+  @apply py-3;
+  @apply mx-auto;
+  @apply text-sm;
+  @apply shadow-sm;
+  @apply font-medium;
+  @apply tracking-wider;
+  @apply border;
+  @apply text-white;
+  @apply rounded-full
+}
+
+.confirmButton:hover{
+  @apply shadow-lg;
+  @apply bg-indigo-900;
+}
+
 .divider{
   margin-bottom:3rem;
   border:1px solid black
