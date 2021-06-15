@@ -2,7 +2,7 @@ import Breadcrumbs from '../../../components/BreadCrumbs';
 
 export const getServerSidePaths = async () => {
 
-    const res = await fetch(`http://localhost:3000/items.json`)
+    const res = await fetch(`${process.env.url}/items.json`)
     const data = await res.json();
 
     const paths = data.map(post => {
@@ -19,7 +19,7 @@ export const getServerSidePaths = async () => {
 
 export const getServerSideProps = async (context) => {
     const id = context.params.id;
-    const res = await fetch(`http://localhost:3000/items/` + id + `.json`);
+    const res = await fetch(`${process.env.url}/items/` + id + `.json`);
     const data = await res.json();
     return {
         props: {item: data}
