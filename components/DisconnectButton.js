@@ -9,6 +9,7 @@ const DisconnectButton = () => {
     event.preventDefault();
     dispatch(logOut());
     Cookies.remove('token');
+    Cookies.remove('isLoggedIn');
   };
 
   return (
