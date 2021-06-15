@@ -2,9 +2,13 @@ import { useDispatch } from 'react-redux';
 import Cookies from 'js-cookie';
 import Router from 'next/router';
 import { logIn } from '../redux/actions/userActions';
+import { useAlert } from 'react-alert';
+import { types } from 'react-alert'
+
 
 const Login = () => {
   const dispatch = useDispatch();
+  const alert = useAlert();
 
   const submitInfo = (event) => {
     event.preventDefault();
@@ -23,6 +27,7 @@ const Login = () => {
         Cookies.set('token', response.headers.get('Authorization'), { sameSite: 'lax' });
         Cookies.set('isLoggedIn', true, { sameSite: 'lax' });
         dispatch(logIn(Cookies.get('token')));
+        alert.show("Vous êtes connecté(e).", { type: types.SUCCESS })
         Router.push('/');
       }
       return response.json()})
@@ -33,6 +38,8 @@ const Login = () => {
     })
     .catch(exception => {
       console.warn(`${exception.message}`)
+      alert.show(`${exception.message}`, { type: types.ERROR })
+
       }
     );
   };
