@@ -51,7 +51,7 @@ const Login = () => {
         </label>
         <input name="user[password]" id="password" type="password" placeholder="Mot de passe (6 caractères min.)" className="block border border-grey-light w-full p-3 rounded mb-4"></input>
         <button type="submit" className="w-full text-center py-3 rounded bg-green-500 text-white hover:bg-green-dark focus:outline-none my-1">
-        S'inscrire
+        Se connecter
         </button>
         </form>
       </div>
