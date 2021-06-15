@@ -1,11 +1,11 @@
 import Image from 'next/image'
+import styles from '../styles/Home.module.scss'
 
 export default function Home() {
-  
   return (
     <>
-      <div className="container mx-auto h-screen font-mono" >
-        <div className="text-center px-3 lg:px-0 bottles-img">
+      <div className="container mx-auto h-screen font-mono">
+        <div id={styles.jumbotron_banner}  className="text-center px-3 lg:px-0 bg-opacity-30">
           <h1
             className="my-4 text-2xl md:text-3xl lg:text-5xl font-mono leading-tight"
           >

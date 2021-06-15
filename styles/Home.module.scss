@@ -119,3 +119,11 @@
     flex-direction: column;
   }
 }
+
+#jumbotron_banner{
+  background-image: url('../public/jumbotron.jpg');
+  height:75vh;
+  background-position: center;
+  object-fit: cover;
+
+}
