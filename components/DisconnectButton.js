@@ -9,10 +9,11 @@ const DisconnectButton = () => {
     event.preventDefault();
     dispatch(logOut());
     Cookies.remove('token');
+    Cookies.remove('isLoggedIn');
   };
 
   return (
-    <button onClick={logOutUser} className="border rounded bg-white hover:bg-gray-100">Se déconnecter</button>
+    <button onClick={logOutUser}>Se déconnecter</button>
   )
 };
 
