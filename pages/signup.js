@@ -2,6 +2,7 @@ import { useDispatch } from 'react-redux';
 import Cookies from 'js-cookie';
 import Router from 'next/router';
 import { logIn } from '../redux/actions/userActions';
+import { useAlert, types } from 'react-alert';
 
 const Signup = () => {
   const dispatch = useDispatch();
@@ -23,6 +24,7 @@ const Signup = () => {
         Cookies.set('token', response.headers.get('Authorization'), { sameSite: 'lax' });
         Cookies.set('isLoggedIn', true, { sameSite: 'lax' });
         dispatch(logIn(Cookies.get('token')));
+        alert.show("Vous êtes connecté(e).", { type: types.SUCCESS })
         Router.push('/');
       }
       return response.json()})
@@ -35,7 +37,7 @@ const Signup = () => {
       let errors = JSON.parse(exception.message);
       for(let key in errors){
         for(let message in errors[key]){
-          console.warn(`${key} ${errors[key][message]}`)
+          alert.show(`${key} ${errors[key][message]}`, { type: types.ERROR })
         }
       }
     });

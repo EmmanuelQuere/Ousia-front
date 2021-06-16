@@ -2,8 +2,7 @@ import { useDispatch } from 'react-redux';
 import Cookies from 'js-cookie';
 import Router from 'next/router';
 import { logIn } from '../redux/actions/userActions';
-import { useAlert } from 'react-alert';
-import { types } from 'react-alert'
+import { useAlert, types } from 'react-alert';
 
 
 const Login = () => {
@@ -37,9 +36,7 @@ const Login = () => {
       }
     })
     .catch(exception => {
-      console.warn(`${exception.message}`)
       alert.show(`${exception.message}`, { type: types.ERROR })
-
       }
     );
   };
