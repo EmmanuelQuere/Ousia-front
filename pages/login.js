@@ -2,9 +2,12 @@ import { useDispatch } from 'react-redux';
 import Cookies from 'js-cookie';
 import Router from 'next/router';
 import { logIn } from '../redux/actions/userActions';
+import { useAlert, types } from 'react-alert';
+
 
 const Login = () => {
   const dispatch = useDispatch();
+  const alert = useAlert();
 
   const submitInfo = (event) => {
     event.preventDefault();
@@ -23,6 +26,7 @@ const Login = () => {
         Cookies.set('token', response.headers.get('Authorization'), { sameSite: 'lax' });
         Cookies.set('isLoggedIn', true, { sameSite: 'lax' });
         dispatch(logIn(Cookies.get('token')));
+        alert.show("Vous êtes connecté(e).", { type: types.SUCCESS })
         Router.push('/');
       }
       return response.json()})
@@ -32,7 +36,7 @@ const Login = () => {
       }
     })
     .catch(exception => {
-      console.warn(`${exception.message}`)
+      alert.show(`${exception.message}`, { type: types.ERROR })
       }
     );
   };
@@ -51,7 +55,7 @@ const Login = () => {
         </label>
         <input name="user[password]" id="password" type="password" placeholder="Mot de passe (6 caractères min.)" className="block border border-grey-light w-full p-3 rounded mb-4"></input>
         <button type="submit" className="w-full text-center py-3 rounded bg-green-500 text-white hover:bg-green-dark focus:outline-none my-1">
-        S'inscrire
+        Se connecter
         </button>
         </form>
       </div>
