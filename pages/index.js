@@ -48,7 +48,7 @@ export default function Home() {
               className="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"
             ></div>
           </div>
-          <div class="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-4">
             <div className="flex flex-wrap">
               <div >
                 <p className="text-gray-600 mb-8">
@@ -83,7 +83,7 @@ export default function Home() {
             ></div>
           </div>
 
-          <div class="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-4">
 
             <Image
               src="/ousiafounders.png"
