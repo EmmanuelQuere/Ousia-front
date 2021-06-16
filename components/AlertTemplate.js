@@ -1,3 +1,5 @@
+import styles from './../styles/Alerts.module.scss'
+
 const alertStyle = {
   backgroundColor: 'rgba(243, 244, 246)',
   color: 'black',
@@ -13,7 +15,7 @@ const alertStyle = {
 
 const AlertTemplate = ({ style, options, message, close }) => {
   return (
-    <div style={{ ...alertStyle, ...style }}>
+    <div style={{...style }} className={styles.alert}>
       {options.type === 'info' && '!'}
       {options.type === 'success'}
       {options.type === 'error' && '! '}
