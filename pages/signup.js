@@ -6,6 +6,7 @@ import { useAlert, types } from 'react-alert';
 
 const Signup = () => {
   const dispatch = useDispatch();
+  const alert = useAlert();
 
   const submitInfo = (event) => {
     event.preventDefault();
