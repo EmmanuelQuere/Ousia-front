@@ -1,3 +1,6 @@
+import Cookies from 'js-cookie';
+import { useRef } from 'react';
+import { useSelector } from 'react-redux';
 import Breadcrumbs from '../../../components/BreadCrumbs';
 
 export const getServerSidePaths = async () => {
@@ -27,9 +30,23 @@ export const getServerSideProps = async (context) => {
 }
 
 const Item = ({ item }) => {
+
+    const token = Cookies.get('token');
+    const quantity = useRef(0);
+
     const addToCart = () => {
         console.log('ajouté au panier')
+        fetch(`${process.env.url}/cart_items.json`, {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `${token}`
+            },
+            body: JSON.stringify({cart_item: {item_id: `${item.id}`, quantity: `${quantity.current}`}})
+        })
+            .catch(error => console.warn(error))
     }
+
     return (
         <div className="container mx-auto p-20">
             <Breadcrumbs item={item}/>
@@ -63,7 +80,7 @@ const Item = ({ item }) => {
                                 <div className="flex items-center">
                                     <span className="mr-3">Quantité</span>
                                     <div className="relative">
-                                        <select className="rounded border appearance-none border-gray-400 py-2 focus:outline-none focus:border-red-500 text-base pl-3 pr-10">
+                                        <select className="rounded border appearance-none border-gray-400 py-2 focus:outline-none focus:border-red-500 text-base pl-3 pr-10" ref={quantity}>
                                         <option>1</option>
                                         <option>2</option>
                                         <option>3</option>
