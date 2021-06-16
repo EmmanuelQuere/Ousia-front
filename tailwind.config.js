@@ -7,6 +7,9 @@ module.exports = {
     extend: {
       colors: {
         orange: '#fed8b1',
+      backgroundImage: (theme) => ({
+        'bottles-img' : "url('/public/ousiabottles.png')"
+      })
       }
     },
   },
