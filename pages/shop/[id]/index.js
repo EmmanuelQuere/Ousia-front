@@ -21,6 +21,7 @@ export const getServerSideProps = async (context) => {
     const id = context.params.id;
     const res = await fetch(`${process.env.url}/items/` + id + `.json`);
     const data = await res.json();
+    console.log(data);
     return {
         props: {item: data}
     }
@@ -36,7 +37,7 @@ const Item = ({ item }) => {
             <section className="text-gray-700 body-font overflow-hidden bg-white">
                 <div className="container px-5 py-20 mx-auto">
                     <div className="lg:w-4/5 mx-auto flex flex-wrap">
-                        <img alt="ecommerce" className="lg:w-1/2 w-full object-cover object-center rounded" src="https://www.dropbox.com/s/8wcoj21a4vxbk7s/tl.png?dl=1"></img>
+                        <img alt="ecommerce" className="lg:w-1/2 w-full object-cover object-center rounded" src={item.images[0]}></img>
                         <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
                             <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">{item.name}</h1>
                             <div className="flex mb-4">
