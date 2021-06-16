@@ -4,7 +4,15 @@ import { Provider } from 'react-redux';
 import '../styles/globals.css';
 import '../styles/tailwind_utilities.css';
 import Head from "next/head";
-import Footer from "../components/footer"
+import { transitions, positions, Provider as AlertProvider } from 'react-alert';
+import AlertTemplate from './../components/AlertTemplate';
+
+const alertOptions = {
+  position: positions.TOP_CENTER,
+  timeout: 5000,
+  offset: '30px',
+  transition: transitions.SCALE
+}
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -13,9 +21,11 @@ function MyApp({ Component, pageProps }) {
      <meta name="viewport" content="width=device-width, initial-scale=1" />
   </Head>
   <Provider store={store}>
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+    <AlertProvider template={AlertTemplate} {...alertOptions}>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </AlertProvider>
   </Provider>
 
   </>
