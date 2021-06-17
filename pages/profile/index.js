@@ -22,11 +22,19 @@ const Profile = () => {
 
       fetch(`${process.env.url}/profile`, requestOptions)
       .then(response => response.json())
-      .then(result=> setCurrentUser(result))
-      .catch(error => console.log('error', error));}
+      .then(result=> { setCurrentUser(result.user),setUserOrders(result.order)} )
+      .catch(error => console.log('error', error))
+      ;}
+      
     }
+  
     , []
   )
+  
+  console.log(currentUser)
+  console.log(userOrders[0])
+ 
+  
   return (
     <div className="container mx-auto p-20">
       <div>
@@ -48,6 +56,10 @@ const Profile = () => {
       </section>
       <section className="text-center">
         <h3 className={styles.subtitle}>Mes commandes</h3>
+        <div className="mb-2 text-gray-700">
+          Ma commande : 
+      
+        </div>
       </section>
     </div>
   )
