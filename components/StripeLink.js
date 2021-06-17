@@ -2,28 +2,12 @@ import React, { useState, useEffect } from "react";
 import { loadStripe } from "@stripe/stripe-js";
 import CheckoutMessage from "./CheckoutMessage";
 import { useSelector } from "react-redux";
+import CheckoutButton from "./CheckoutButton";
 
 const stripePromise = loadStripe("pk_test_51ILoi9D5i13aYcbUguAzFyWWFijcBAUTSwKs82B6piA6SUdImu8A94Ys7TKbYICjB98l0Ev228dHHSvpPciTtR0F00oqJphB5S");
 
-const ProductDisplay = ({ handleClick }) => (
-  <section>
-    <div className="product">
-      <img
-        src="https://i.imgur.com/EHyR2nP.png"
-        alt="The cover of Stubborn Attachments"
-      />
-      <div className="description">
-        <h3>Stubborn Attachments</h3>
-        <h5>$20.00</h5>
-      </div>
-    </div>
-    <button type="button" id="checkout-button" role="link" onClick={handleClick}>
-      Checkout
-    </button>
-  </section>
-);
-
 export default function StripeLink(props) {
+  const [title, setTitle] = useState("");
   const [message, setMessage] = useState("");
   const userToken = useSelector(state => state.token);
 
@@ -31,6 +15,7 @@ export default function StripeLink(props) {
     const query = new URLSearchParams(window.location.search);
 
     if (query.get("success")) {
+      setTitle("Merci d'avoir commandé chez Ousia ! 🚀")
       setMessage("Votre commande a été passée avec succès ! Vous allez recevoir un e-mail de confirmation.");
 
       let myHeaders = new Headers();
@@ -48,8 +33,9 @@ export default function StripeLink(props) {
     }
 
     if (query.get("canceled")) {
+      setTitle("Oups... 🤔")
       setMessage(
-        "Votre commande a été annulée. En cas de problème, contactez notre équipe à ventes@ousia.com"
+        "Votre commande n'a pas pu aboutir. En cas de problème, contactez notre équipe à ventes@ousia.com"
       );
     }
   }, []);
@@ -81,8 +67,8 @@ export default function StripeLink(props) {
   };
 
   return message ? (
-    <CheckoutMessage message={message} />
+    <CheckoutMessage message={message} title={title} />
   ) : (
-    <ProductDisplay handleClick={handleClick} />
+    <CheckoutButton handleClick={handleClick} />
   );
 }
