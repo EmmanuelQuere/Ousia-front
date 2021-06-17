@@ -17,7 +17,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className={styles.container}>
+      <div className={`${styles.container} px-6`}>
         <section className="bg-white-100 border-b py-8">
           <div className="container max-w-5xl mx-auto m-8">
             <h2 className="w-full my-2 text-5xl font-mono-black leading-tight text-center text-gray-800">
@@ -47,9 +47,9 @@ export default function Home() {
             </div>
           </section>
         </div>
-        <div className={styles.container}>
         <section className="bg-gray-100 border-b py-8">
-          <div className="container max-w-5xl mx-auto m-8">
+          <div className={styles.container}>
+          <div className="max-w-5xl mx-auto">
             <h2 className="w-full my-2 text-5xl -black leading-tight text-center text-gray-800">
               Le mot des fondateurs
             </h2>
@@ -83,8 +83,8 @@ export default function Home() {
             </div>
           </div>
         </div>
+        </div>
       </section>
-    </div>
     </>
   )
 }
