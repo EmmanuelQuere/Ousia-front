@@ -35,6 +35,8 @@ const Item = ({ item }) => {
     const quantity = useRef(0);
 
     const addToCart = () => {
+
+        if(token){
         console.log('ajouté au panier')
         fetch(`${process.env.url}/cart_items.json`, {
             method: 'POST',
@@ -45,6 +47,9 @@ const Item = ({ item }) => {
             body: JSON.stringify({cart_item: {item_id: `${item.id}`, quantity: quantity.current.value}})
         })
             .catch(error => console.warn(error))
+    }else{
+        console.log('connectez vous')
+    }
     }
 
     return (
