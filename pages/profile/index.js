@@ -11,38 +11,39 @@ const Profile = () => {
   React.useEffect(
     () => {
       if (!userToken) { window.location = "/login" }
-      else
-      {let myHeaders = new Headers();
-      myHeaders.append("Authorization", `${userToken}`);
+      else {
+        let myHeaders = new Headers();
+        myHeaders.append("Authorization", `${userToken}`);
 
-      let requestOptions = {
-        method: 'GET',
-        headers: myHeaders
-      };
+        let requestOptions = {
+          method: 'GET',
+          headers: myHeaders
+        };
 
-      fetch(`${process.env.url}/profile`, requestOptions)
-      .then(response => response.json())
-      .then(result=> { setCurrentUser(result.user),setUserOrders(result.order)} )
-      .catch(error => console.log('error', error))
-      ;}
-      
+        fetch(`${process.env.url}/profile`, requestOptions)
+          .then(response => response.json())
+          .then(result => { setCurrentUser(result.user), setUserOrders(result.order) })
+          .catch(error => console.log('error', error))
+          ;
+      }
+
     }
-  
+
     , []
   )
-  
+
   console.log(currentUser)
   console.log(userOrders[0])
- 
-  
+
+
   return (
     <div className="container mx-auto p-20">
       <div>
         <h2 className={styles.title}>Mon profil</h2>
-        <hr className={styles.divider}/>
+        <hr className={styles.divider} />
       </div>
       <section className="pb-10 text-center">
-      <h3 className={styles.subtitle}>Mes informations</h3>
+        <h3 className={styles.subtitle}>Mes informations</h3>
         <div className="mb-2 text-gray-700 mt-10">
           Mon e-mail : {currentUser.email}
         </div>
@@ -56,10 +57,16 @@ const Profile = () => {
       </section>
       <section className="text-center">
         <h3 className={styles.subtitle}>Mes commandes</h3>
-        <div className="mb-2 text-gray-700">
-          Ma commande : 
-      
+        <div className="grid grid-cols-1 gap-4">
+         
+        {userOrders.map((order, index) => (
+       
+              <p>Numéro de commande n°{order.id} : {order.status}</p>
+            
+            ))}
+    
         </div>
+       
       </section>
     </div>
   )
