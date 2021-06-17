@@ -42,7 +42,7 @@ const Item = ({ item }) => {
                 "Content-Type": "application/json",
                 "Authorization": `${token}`
             },
-            body: JSON.stringify({cart_item: {item_id: `${item.id}`, quantity: `${quantity.current}`}})
+            body: JSON.stringify({cart_item: {item_id: `${item.id}`, quantity: quantity.current.value}})
         })
             .catch(error => console.warn(error))
     }
