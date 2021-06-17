@@ -1,7 +1,7 @@
-import Cookies from 'js-cookie';
 import { useRef } from 'react';
 import { useSelector } from 'react-redux';
 import Breadcrumbs from '../../../components/BreadCrumbs';
+import { useAlert, types } from 'react-alert';
 
 export const getServerSidePaths = async () => {
 
@@ -32,25 +32,32 @@ export const getServerSideProps = async (context) => {
 
 const Item = ({ item }) => {
 
-    const token = Cookies.get('token');
+    const userToken = useSelector(state => state.token);
     const quantity = useRef(0);
+    const alert = useAlert();
 
     const addToCart = () => {
 
-        if(token){
-        console.log('ajouté au panier')
-        fetch(`${process.env.url}/cart_items.json`, {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": `${token}`
-            },
-            body: JSON.stringify({cart_item: {item_id: `${item.id}`, quantity: quantity.current.value}})
-        })
-            .catch(error => console.warn(error))
-    }else{
+        if(userToken){
+            fetch(`${process.env.url}/cart_items.json`, {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `${userToken}`
+                },
+                body: JSON.stringify({cart_item: {item_id: `${item.id}`, quantity: quantity.current.value}})
+            })
+                .then(response => response.json())
+                .then(response => {
+                    if (response) { alert.show("Article ajouté au panier !", { type: types.SUCCESS }) }
+                    else { alert.show(`Une erreur est survenue, veuillez réessayer.`, { type: types.ERROR }) }
+                })
+            .catch(error => alert.show(`${error.message}`, { type: types.ERROR }))
+        }
+        else
+        {
         console.log('connectez vous')
-    }
+        };
     }
 
     return (
