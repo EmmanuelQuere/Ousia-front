@@ -18,7 +18,7 @@ const Edit = () => {
 
       fetch(`${process.env.url}/profile`, requestOptions)
       .then(response => response.json())
-      .then(result=> setCurrentUser(result))
+        .then(result => { setCurrentUser(result.user); console.log(result)})
       .catch(error => console.log('error', error));
     }
     , []

@@ -35,10 +35,6 @@ const Profile = () => {
     , []
   )
 
-  console.log(currentUser)
-  console.log(userOrders[0])
-
-
   return (
     <div className="container mx-auto p-20">
       <div>
@@ -60,10 +56,10 @@ const Profile = () => {
       </section>
       <section className="text-center">
         <h3 className={styles.subtitle}>Mes commandes</h3>
-        {userOrders.length >= 1  ?
+        {userOrders.length > 0  ?
           <div className="grid grid-cols-1 gap-4">
             {userOrders.map((order, index) => (
-              <p className="mt-2">Commande n°{order.id} : {order.status}</p>
+              <p className="mt-2" key={`order_${order.id}`}>Commande n°{order.id} : {order.status}</p>
             ))}
           </div>
           : 'Aucune commande'}
