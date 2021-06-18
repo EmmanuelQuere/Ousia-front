@@ -59,7 +59,7 @@ const About = () => {
             alt="Ousia products"
             width={500}
             height={500}
-            class="rounded"
+            className="rounded"
           />
         </div>
       </div>
