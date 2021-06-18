@@ -56,7 +56,7 @@ const Item = ({ item }) => {
         }
         else
         {
-        console.log('connectez vous')
+            alert.show(`Veuillez vous connecter pour ajouter des articles à votre panier.`, { type: types.ERROR })
         };
     }
 
