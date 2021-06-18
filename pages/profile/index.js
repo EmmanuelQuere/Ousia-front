@@ -60,10 +60,10 @@ const Profile = () => {
       </section>
       <section className="text-center">
         <h3 className={styles.subtitle}>Mes commandes</h3>
-        {userOrders !== null ?
+        {userOrders.length >= 1  ?
           <div className="grid grid-cols-1 gap-4">
             {userOrders.map((order, index) => (
-              <p>Numéro de commande n°{order.id} : {order.status}</p>
+              <p className="mt-2">Commande n°{order.id} : {order.status}</p>
             ))}
           </div>
           : 'Aucune commande'}
