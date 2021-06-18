@@ -33,12 +33,13 @@ export default function Home() {
                   Ousia, du grec "οὐσία", désigne l'essence des choses en philosophie. Parce que, pour nous, l'essence même de l'apéritif n'est pas la consommation d'alcool mais bien de permettre à tous de se retrouver dans un moment de convivialité partagée.
                 </p>
               </div>
-              <div className="flex-auto sm:flex-1 px-2">
+              <div className="flex-auto sm:flex-1 px-2 filter drop-shadow-lg">
                 <Image
                 src="/ousia-pic.jpeg"
                 alt="Picture of the author"
                 width={500}
                 height={500}
+                class="rounded"
                 />
               </div>
               </div>
@@ -53,12 +54,13 @@ export default function Home() {
             </h2>
             <div className="w-48 lg:w-1/3 border-b-4 border-red-700 h-1 mx-auto mb-4"></div>
             <div className="flex flex-row flex-wrap items-center">
-              <div className="flex-auto sm:flex-1 px-2">
+              <div className="flex-auto sm:flex-1 px-2 filter drop-shadow-lg">
                 <Image
                   src="/ousiafounders.png"
                   alt="Picture of the author"
                   width={500}
                   height={500}
+                  class="rounded"
                 />
               </div>
               <div className="flex-auto sm:flex-1 px-2">
