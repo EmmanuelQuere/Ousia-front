@@ -148,7 +148,8 @@
 .blockquote::before {
   position: absolute;
   font-family: 'Arial';
-  top: 0;
+  top: -1.5rem;
+  left: 3rem;
   content:"\201C";
   font-size: 200px;
   color: rgba(0,0,0,0.1);

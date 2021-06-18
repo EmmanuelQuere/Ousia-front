@@ -24,23 +24,23 @@ export default function Home() {
               Pourquoi Ousia ?
             </h2>
             <div className="w-48 lg:w-1/3 border-b-4 border-red-700 h-1 mx-auto mb-4"></div>
-            <div className="grid grid-cols-2 gap-4">
-              <div className="flex flex-wrap">
-                <div>
-                  <p className="text-gray-600 mb-8">
-                    L'apéritif, moment convivial et rassembleur par essence est trop souvent lié à la consommation d'alcool. Pourtant, de nombreuses personnes ne peuvent pas ou ne veulent pas boire d'alcool et n'ont pas le choix d'une vraie expérience alternative
-                  </p>
-                  <p className="text-gray-600 mb-8">
-                    Ousia, du grec "οὐσία", désigne l'essence des choses en philosophie. Parce que, pour nous, l'essence même de l'apéritif n'est pas la consommation d'alcool mais bien de permettre à tous de se retrouver dans un moment de convivialité partagée.
-                  </p>
-                </div>
+            <div className="flex flex-row flex-wrap items-center">
+              <div className="flex-auto sm:flex-1 px-2">
+                <p className="text-gray-600 mb-8">
+                  L'apéritif, moment convivial et rassembleur par essence est trop souvent lié à la consommation d'alcool. Pourtant, de nombreuses personnes ne peuvent pas ou ne veulent pas boire d'alcool et n'ont pas le choix d'une vraie expérience alternative
+                </p>
+                <p className="text-gray-600 mb-8">
+                  Ousia, du grec "οὐσία", désigne l'essence des choses en philosophie. Parce que, pour nous, l'essence même de l'apéritif n'est pas la consommation d'alcool mais bien de permettre à tous de se retrouver dans un moment de convivialité partagée.
+                </p>
               </div>
-              <Image
+              <div className="flex-auto sm:flex-1 px-2">
+                <Image
                 src="/ousia-pic.jpeg"
                 alt="Picture of the author"
                 width={500}
                 height={500}
-              />
+                />
+              </div>
               </div>
             </div>
           </section>
@@ -52,24 +52,25 @@ export default function Home() {
               Le mot des fondateurs
             </h2>
             <div className="w-48 lg:w-1/3 border-b-4 border-red-700 h-1 mx-auto mb-4"></div>
-
-            <div className="grid grid-cols-2 gap-4">
-              <Image
-                src="/ousiafounders.png"
-                alt="Picture of the author"
-                width={500}
-                height={500}
-              />
-            <div>
-              <blockquote className={styles.blockquote}>
-                Tous les trois, on aime bien prendre l'apéro. Mais ce qu'on aime avant tout c'est de le partager
-                avec nos amis et familles autour de boissons sympas et de petites choses à manger.
-                Aux différents stades de la vie où nous nous trouvons chacun, nous nous sommes vite rendus
-                compte qu'il y avait de nombreuses situations dans lesquelles certaines personnes ne voulaient ou
-                ne pouvaient pas boire d'alcool. Ce qui, parfois, peut entamer la convivialité partagée autour de ce
-                moment.
-              </blockquote>
-            </div>
+            <div className="flex flex-row flex-wrap items-center">
+              <div className="flex-auto sm:flex-1 px-2">
+                <Image
+                  src="/ousiafounders.png"
+                  alt="Picture of the author"
+                  width={500}
+                  height={500}
+                />
+              </div>
+              <div className="flex-auto sm:flex-1 px-2">
+                <blockquote className={styles.blockquote}>
+                  Tous les trois, on aime bien prendre l'apéro. Mais ce qu'on aime avant tout c'est de le partager
+                  avec nos amis et familles autour de boissons sympas et de petites choses à manger.
+                  Aux différents stades de la vie où nous nous trouvons chacun, nous nous sommes vite rendus
+                  compte qu'il y avait de nombreuses situations dans lesquelles certaines personnes ne voulaient ou
+                  ne pouvaient pas boire d'alcool. Ce qui, parfois, peut entamer la convivialité partagée autour de ce
+                  moment.
+                </blockquote>
+              </div>
           </div>
         </div>
         </div>
