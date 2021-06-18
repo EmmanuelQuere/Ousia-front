@@ -20,12 +20,10 @@ export default function Home() {
       <div className={`${styles.container} px-6`}>
         <section className="bg-white-100 border-b py-8">
           <div className="container max-w-5xl mx-auto m-8">
-            <h2 className="w-full my-2 text-5xl font-mono-black leading-tight text-center text-gray-800">
+            <h2 className="w-full my-2 text-5xl font-mono-black leading-tight text-center text-gray-800 mb-2">
               Pourquoi Ousia ?
             </h2>
-            <div className="w-full mb-4">
-              <div className="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
-            </div>
+            <div className="w-48 lg:w-1/3 border-b-4 border-red-700 h-1 mx-auto mb-4"></div>
             <div className="grid grid-cols-2 gap-4">
               <div className="flex flex-wrap">
                 <div>
@@ -50,12 +48,10 @@ export default function Home() {
         <section className="bg-gray-100 border-b py-8">
           <div className={styles.container}>
           <div className="max-w-5xl mx-auto">
-            <h2 className="w-full my-2 text-5xl -black leading-tight text-center text-gray-800">
+            <h2 className="w-full my-2 text-5xl -black leading-tight text-center text-gray-800 mb-2">
               Le mot des fondateurs
             </h2>
-            <div className="w-full mb-4">
-              <div className="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
-            </div>
+            <div className="w-48 lg:w-1/3 border-b-4 border-red-700 h-1 mx-auto mb-4"></div>
 
             <div className="grid grid-cols-2 gap-4">
               <Image
@@ -65,21 +61,14 @@ export default function Home() {
                 height={500}
               />
             <div>
-              <p className="text-gray-600 mb-8 text-justify">
-                « Tous les trois, on aime bien prendre l'apéro. Mais ce qu'on aime avant tout c'est de le partager
+              <blockquote className={styles.blockquote}>
+                Tous les trois, on aime bien prendre l'apéro. Mais ce qu'on aime avant tout c'est de le partager
                 avec nos amis et familles autour de boissons sympas et de petites choses à manger.
                 Aux différents stades de la vie où nous nous trouvons chacun, nous nous sommes vite rendus
                 compte qu'il y avait de nombreuses situations dans lesquelles certaines personnes ne voulaient ou
                 ne pouvaient pas boire d'alcool. Ce qui, parfois, peut entamer la convivialité partagée autour de ce
                 moment.
-                Parce que les consciences s'éveillent et que les comportements commencent à changer, avec Ousia,
-                nous souhaitons accompagner ce mouvement en développant une gamme de boissons permettant
-                à tous de se retrouver sans avoir de compromis à faire.
-                Aussi, nous avons créé cette gamme de cocktails en gardant toujours à l'esprit que le français reste
-                épicurien et qu'il aime avant tout se faire plaisir. C'est pour ça qu'avec Ousia, nous vous proposons
-                des boissons: 100% plaisir, 100% naturelles et 100% sans alcool ! »
-                Alors, prêts à vous laisser tenter par le sans alcool ?
-              </p>
+              </blockquote>
             </div>
           </div>
         </div>
