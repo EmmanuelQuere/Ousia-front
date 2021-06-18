@@ -12,7 +12,7 @@ export default function Home() {
             <div className="text-5xl leading-normal text-gray-200">Ousia, l'essence même de l'apéritif</div>
             <div className="text-lg leading-normal mt-0 mb-2 text-gray-200 font-bold uppercase">Cocktails sophistiqués, sans alcool et prêts à boire</div>
             <Link href="/shop"><a className="inline-block mx-auto lg:mx-0 text-gray-600 bg-white rounded shadow-lg p-2 lg:px-4 lg:py-3 mr-1 lg:mr-3">Nos produits</a></Link>
-            <Link href="/"><a className="inline-block mx-auto lg:mx-0 text-gray-600 bg-white rounded shadow-lg p-2 lg:px-4 lg:py-3 ml-1 lg:ml-3">Notre histoire</a></Link>
+            <Link href="/about"><a className="inline-block mx-auto lg:mx-0 text-gray-600 bg-white rounded shadow-lg p-2 lg:px-4 lg:py-3 ml-1 lg:ml-3">Notre histoire</a></Link>
           </div>
         </div>
       </div>
