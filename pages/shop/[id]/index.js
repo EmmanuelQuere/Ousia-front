@@ -1,4 +1,7 @@
+import { useRef } from 'react';
+import { useSelector } from 'react-redux';
 import Breadcrumbs from '../../../components/BreadCrumbs';
+import { useAlert, types } from 'react-alert';
 
 export const getServerSidePaths = async () => {
 
@@ -28,9 +31,35 @@ export const getServerSideProps = async (context) => {
 }
 
 const Item = ({ item }) => {
+
+    const userToken = useSelector(state => state.token);
+    const quantity = useRef(0);
+    const alert = useAlert();
+
     const addToCart = () => {
-        console.log('ajouté au panier')
+
+        if(userToken){
+            fetch(`${process.env.url}/cart_items.json`, {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `${userToken}`
+                },
+                body: JSON.stringify({cart_item: {item_id: `${item.id}`, quantity: quantity.current.value}})
+            })
+                .then(response => response.json())
+                .then(response => {
+                    if (response) { alert.show("Article ajouté au panier !", { type: types.SUCCESS }) }
+                    else { alert.show(`Une erreur est survenue, veuillez réessayer.`, { type: types.ERROR }) }
+                })
+            .catch(error => alert.show(`${error.message}`, { type: types.ERROR }))
+        }
+        else
+        {
+        console.log('connectez vous')
+        };
     }
+
     return (
         <div className="container mx-auto p-20">
             <Breadcrumbs item={item}/>
@@ -64,7 +93,7 @@ const Item = ({ item }) => {
                                 <div className="flex items-center">
                                     <span className="mr-3">Quantité</span>
                                     <div className="relative">
-                                        <select className="rounded border appearance-none border-gray-400 py-2 focus:outline-none focus:border-red-500 text-base pl-3 pr-10">
+                                        <select className="rounded border appearance-none border-gray-400 py-2 focus:outline-none focus:border-red-500 text-base pl-3 pr-10" ref={quantity}>
                                         <option>1</option>
                                         <option>2</option>
                                         <option>3</option>
