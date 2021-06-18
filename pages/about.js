@@ -1,5 +1,7 @@
 import styles from '../styles/Home.module.scss';
 import Image from 'next/image';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGlassMartini } from "@fortawesome/free-solid-svg-icons";
 
 const About = () => {
 
@@ -15,7 +17,7 @@ const About = () => {
           <div className="flex-auto sm:flex-1 px-2">
             <Image
               src="/ousiafounders.png"
-              alt="Picture of the author"
+              alt="Picture of the founders"
               width={500}
               height={500}
             />
@@ -39,37 +41,21 @@ const About = () => {
       <div className="w-48 lg:w-1/3 border-b-4 border-red-700 h-1 mx-auto mb-4"></div>
       <div className="flex flex-row flex-wrap items-center">
         <div className="flex-auto sm:flex-1 px-2">
-          <ul>
-            <div className="flex flex-row">
-              <li className="w-5/6 sm:w-1/2 p-6">Icone</li>
-              <li className="w-1/6 sm:w-1/2 p-6">Sans alcool</li>
-            </div>
-            <div className="flex flex-row">
-              <li className="w-5/6 sm:w-1/2 p-6">Nouvelle expérience</li>
-              <li className="w-1/6 sm:w-1/2 p-6">Icone</li>
-            </div>
-            <div>
-              <li className="inline w-5/6 sm:w-1/2 p-6">Icone</li>
-              <li className="inline w-1/6 sm:w-1/2 p-6">Prêt à boire</li>
-            </div>
-            <div className="flex flex-row">
-              <li className="w-5/6 sm:w-1/2 p-6">100% naturel</li>
-              <li className="w-1/6 sm:w-1/2 p-6">Icone</li>
-            </div>
-            <div>
-              <li className="inline w-5/6 sm:w-1/2 p-6">Icone</li>
-              <li className="inline w-1/6 sm:w-1/2 p-6">Peu calorique</li>
-            </div>
-            <div className="flex flex-row">
-              <li className="w-5/6 sm:w-1/2 p-6">Fait en France</li>
-              <li className="w-1/6 sm:w-1/2 p-6">Icone</li>
-            </div>
-          </ul>
+          <div className="mx-auto">
+            <p>Une boisson <span className="font-bold text-red-700">Ousia</span> c'est...</p>
+            <ul>
+              <li className="text-left list-disc px-3 m-2">Sans alcool 🍸</li>
+              <li className="text-left list-disc px-3 m-2">Prêt à boire 🚀</li>
+              <li className="text-left list-disc px-3 m-2">100% naturel 🌿</li>
+              <li className="text-left list-disc px-3 m-2">Peu calorique ☀️</li>
+              <li className="text-left list-disc px-3 m-2">Fait en France 🇫🇷</li>
+            </ul>
+          </div>
         </div>
         <div className="flex-auto sm:flex-1 px-2">
           <Image
             src="/jumbotron.jpg"
-            alt="Picture of the author"
+            alt="Ousia products"
             width={500}
             height={500}
           />
