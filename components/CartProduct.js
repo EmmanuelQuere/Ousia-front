@@ -13,33 +13,43 @@ const CartProduct = (props) => {
         element.quantity = currentItemQuantity
         element.total = currentItemQuantity * element.item.price
       }
-    }); 
+    });
+    
+    if(!userToken){
+      localStorage.setItem('visitor_cart', JSON.stringify(newCartState))
+    }
     
     props.setCurrentUserCart(newCartState);
   }, [currentItemQuantity]);
 
   const handleDelete = (id) => {
-
-    let myHeaders = new Headers();
-    myHeaders.append('Authorization', `${userToken}`);
-    
-    let requestOptions = {
-      method: 'DELETE',
-      headers: myHeaders
-    };
-    
-    fetch(`${process.env.url}/cart_items/${id}.json`,
-    requestOptions)
-    .then(response => {
-      if (!response.errors){
-        props.setCurrentUserCart(props.currentUserCart.filter(element => element.id !== id))
-      }
-    })
-    .catch(error => console.log('error', error));
+    if(userToken){
+      let myHeaders = new Headers();
+      myHeaders.append('Authorization', `${userToken}`);
+      
+      let requestOptions = {
+        method: 'DELETE',
+        headers: myHeaders
+      };
+      
+      fetch(`${process.env.url}/cart_items/${id}.json`,
+      requestOptions)
+      .then(response => {
+        if (!response.errors){
+          props.setCurrentUserCart(props.currentUserCart.filter(element => element.id !== id))
+        }
+      })
+      .catch(error => console.log('error', error));
+    }else{
+      let newVisitorCart = JSON.parse(localStorage.getItem('visitor_cart'))
+      newVisitorCart = newVisitorCart.filter(element => element.item.id !== id)
+      localStorage.setItem('visitor_cart', JSON.stringify(newVisitorCart))
+      props.setCurrentUserCart(newVisitorCart)
+    }
   }
   
   const handleDecrease = (id) => {
-    
+    if(userToken){
     let myHeaders = new Headers();
     myHeaders.append('Authorization', `${userToken}`);
     myHeaders.append('Content-Type', 'application/json');
@@ -58,11 +68,15 @@ const CartProduct = (props) => {
         }
       })
       .catch(error => console.log('error', error));
+    }else{
+      setCurrentItemQuantity(currentItemQuantity - 1)
+    }
   }
   
   
   const handleIncrease = (id) => {
     
+    if(userToken){
     let myHeaders = new Headers();
     myHeaders.append('Authorization', `${userToken}`);
     myHeaders.append('Content-Type', 'application/json');
@@ -80,6 +94,9 @@ const CartProduct = (props) => {
         }
       })
       .catch(error => console.log('error', error));
+    }else{
+      setCurrentItemQuantity(currentItemQuantity + 1)      
+    }
   }
 
   return (
