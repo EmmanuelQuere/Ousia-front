@@ -14,12 +14,13 @@ const About = () => {
         </h2>
         <div className="w-48 lg:w-1/3 border-b-4 border-red-700 h-1 mx-auto mb-4"></div>
         <div className="flex flex-row flex-wrap items-center">
-          <div className="flex-auto sm:flex-1 px-2">
+          <div className="flex-auto sm:flex-1 px-2 filter drop-shadow-lg">
             <Image
               src="/ousiafounders.png"
               alt="Picture of the founders"
               width={500}
               height={500}
+              className="rounded"
             />
           </div>
           <div className="flex-auto sm:flex-1 px-2">
@@ -52,12 +53,13 @@ const About = () => {
             </ul>
           </div>
         </div>
-        <div className="flex-auto sm:flex-1 px-2">
+        <div className="flex-auto sm:flex-1 px-2 filter drop-shadow-lg">
           <Image
             src="/jumbotron.jpg"
             alt="Ousia products"
             width={500}
             height={500}
+            class="rounded"
           />
         </div>
       </div>

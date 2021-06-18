@@ -20,7 +20,7 @@ const Navigation = () => {
             <div className="flex flex-wrap items-center justify-center p-2 space-x-6 text-sm font-semibold">
               <Link href="/shop"><a className="hover:text-gray-700">Nos produits</a></Link>
               <a href="#" className="hover:text-gray-700">Nos points de vente</a>
-              <a href="#" className="hover:text-gray-700">Qui sommes-nous ?</a>
+              <Link href="/about"><a className="hover:text-gray-700">Qui sommes-nous ?</a></Link>
             </div>
             <div className="flex flex-wrap justify-end">
                 <div className="flex flex-wrap items-center justify-center  p-2 space-x-4 text-gray-900">
