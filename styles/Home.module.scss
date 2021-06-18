@@ -1,11 +1,9 @@
 .container {
-  min-height: 100vh;
   padding: 0 0.5rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  height: 100vh;
+  @apply text-center;
 }
 
 .main {
@@ -125,5 +123,4 @@
   height:75vh;
   background-position: center;
   object-fit: cover;
-
 }
