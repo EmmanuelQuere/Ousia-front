@@ -39,7 +39,7 @@ export default function Home() {
                 alt="Picture of the author"
                 width={500}
                 height={500}
-                class="rounded"
+                className="rounded"
                 />
               </div>
               </div>
@@ -60,7 +60,7 @@ export default function Home() {
                   alt="Picture of the author"
                   width={500}
                   height={500}
-                  class="rounded"
+                  className="rounded"
                 />
               </div>
               <div className="flex-auto sm:flex-1 px-2">
