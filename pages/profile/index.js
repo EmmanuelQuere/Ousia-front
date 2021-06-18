@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 
 const Profile = () => {
   const [currentUser, setCurrentUser] = React.useState({});
-  const [userOrders, setUserOrders] = React.useState({});
+  const [userOrders, setUserOrders] = React.useState([]);
   const userToken = useSelector(state => state.token);
 
   React.useEffect(
@@ -22,7 +22,10 @@ const Profile = () => {
 
         fetch(`${process.env.url}/profile`, requestOptions)
           .then(response => response.json())
-          .then(result => { setCurrentUser(result.user), setUserOrders(result.order) })
+          .then(result => {
+            setCurrentUser(result.user);
+            setUserOrders(result.order);
+          })
           .catch(error => console.log('error', error))
           ;
       }
@@ -57,16 +60,14 @@ const Profile = () => {
       </section>
       <section className="text-center">
         <h3 className={styles.subtitle}>Mes commandes</h3>
-        <div className="grid grid-cols-1 gap-4">
-         
-        {userOrders.map((order, index) => (
-       
+        {userOrders !== null ?
+          <div className="grid grid-cols-1 gap-4">
+            {userOrders.map((order, index) => (
               <p>Numéro de commande n°{order.id} : {order.status}</p>
-            
             ))}
-    
-        </div>
-       
+          </div>
+          : 'Aucune commande'}
+
       </section>
     </div>
   )
