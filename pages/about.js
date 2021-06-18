@@ -40,12 +40,30 @@ const About = () => {
       <div className="flex flex-row flex-wrap items-center">
         <div className="flex-auto sm:flex-1 px-2">
           <ul>
-            <li>Sans alcool</li>
-            <li>Nouvelle expérience</li>
-            <li>Prêt à boire</li>
-            <li>100% naturel</li>
-            <li>Peu calorique</li>
-            <li>Fait en France</li>
+            <div className="flex flex-row">
+              <li className="w-5/6 sm:w-1/2 p-6">Icone</li>
+              <li className="w-1/6 sm:w-1/2 p-6">Sans alcool</li>
+            </div>
+            <div className="flex flex-row">
+              <li className="w-5/6 sm:w-1/2 p-6">Nouvelle expérience</li>
+              <li className="w-1/6 sm:w-1/2 p-6">Icone</li>
+            </div>
+            <div>
+              <li className="inline w-5/6 sm:w-1/2 p-6">Icone</li>
+              <li className="inline w-1/6 sm:w-1/2 p-6">Prêt à boire</li>
+            </div>
+            <div className="flex flex-row">
+              <li className="w-5/6 sm:w-1/2 p-6">100% naturel</li>
+              <li className="w-1/6 sm:w-1/2 p-6">Icone</li>
+            </div>
+            <div>
+              <li className="inline w-5/6 sm:w-1/2 p-6">Icone</li>
+              <li className="inline w-1/6 sm:w-1/2 p-6">Peu calorique</li>
+            </div>
+            <div className="flex flex-row">
+              <li className="w-5/6 sm:w-1/2 p-6">Fait en France</li>
+              <li className="w-1/6 sm:w-1/2 p-6">Icone</li>
+            </div>
           </ul>
         </div>
         <div className="flex-auto sm:flex-1 px-2">
