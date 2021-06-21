@@ -1,4 +1,5 @@
 import React from "react";
+import styles from '../styles/Home.module.scss';
 
 export const getServerSideProps = async (context) => {
   const res = await fetch(`${process.env.url}/store_locations.json`);
@@ -9,18 +10,13 @@ export const getServerSideProps = async (context) => {
 }
 
 const Locations = ({ stores }) => {
-
   return (
-    <>
-    <h1>{`${process.env.TEST}`}</h1>
-    {/* <iframe
-      width="600"
-      height="450"
-      loading="lazy"
-      allowFullScreen
-      src={`https://maps.googleapis.com/maps/embed/v1/place?key=AIzaSyBa7KtmJK43owyvSfu3I5_dO4ZMz1kQ3Q0&q=${stores[0].lat},${stores[0].lng}&zoom=9`}>
-    </iframe> */}
-    </>
+      <div className={styles.container}>
+        <h1 className="text-center text-5xl my-10">Où nous trouver</h1>
+        <ul>
+        {stores.map(store => <li>{store.name}</li>)}
+        </ul>
+      </div>
   )
 }
 
