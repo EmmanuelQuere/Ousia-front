@@ -1,5 +1,8 @@
+import React from 'react';
 import Prismic  from '@prismicio/client';
 import { RichText } from 'prismic-reactjs';
+import BlogTextComponent from './../../../components/blog/BlogTextComponent'
+import BlogImageComponent from './../../../components/blog/BlogImageComponent'
 
 const apiEndpoint = 'https://testprismicwithnext407.cdn.prismic.io/api/v2';
 const options = {};
@@ -33,12 +36,24 @@ export async function getStaticProps(context) {
 
 const Article = ({ res }) => {
   console.log(res);
+  const components = {
+    text: BlogTextComponent,
+    image_with_caption: BlogImageComponent
+  };
+
+  let component = res.data.body.map(element => {
+    let BlogComponent = components[element.slice_type];
+    let props = element.primary
+    return {component: BlogComponent, props: props}
+  })
+
+  console.log(component);
   return (
     <div>
       <RichText render={res.data.title} />
       <section className="px-3 my-3">
-        {res.data.body.map(element =>
-          (element.slice_type == "text") ? <RichText render={element.primary.text} /> : <p>On s'en fout</p>
+        {component.map(data =>
+          React.createElement(data.component, data.props)
         )}
       </section>
     </div>
