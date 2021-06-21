@@ -6,8 +6,11 @@ import { useSelector } from 'react-redux';
 const Profile = () => {
   const [currentUser, setCurrentUser] = React.useState({});
   const [userOrders, setUserOrders] = React.useState([]);
+  const [totalOrder, setTotalOrder] = React.useState(0);
 
   const userToken = useSelector(state => state.token);
+
+  
 
   React.useEffect(
     () => {
@@ -36,8 +39,6 @@ const Profile = () => {
     , []
   )
 
-  console.log(userOrders)
-
   return (
     <div className="container mx-auto p-20">
       <div>
@@ -59,36 +60,38 @@ const Profile = () => {
       </section>
       <section className="text-center">
         <h3 className={styles.subtitle}>Mes commandes</h3>
-        <div className="flex mt-10 mb-5">
-          <h3 className="font-semibold text-gray-600 text-xs uppercase w-2/5">Produit</h3>
-          <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Quantité</h3>
-          <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Prix</h3>
-          <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Total</h3>
-
-        </div>
+      
         <div >
           {userOrders.length > 0 ?
 
-            <div className="flex mt-10 mb-5 table-auto flex-wrap">
-              {userOrders.map((order, index) => (
-                <>
 
-                  <h3 className="font-semibold text-gray-600 text-xs uppercase w-2/5" key={`order_${order.id}`}>Commande n°{order.id}</h3>
-
-                  <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">{order.status}</h3>
-                  {order.order_items.map((orderItem, index) => (
-      
-                      <>
-                          <h3 className="font-semibold text-gray-600 text-xs uppercase w-2/5" >Quantity{orderItem.quantity}</h3>
-                          <h3 className="font-semibold text-gray-600 text-xs uppercase w-2/5" >Price{orderItem.item.price}</h3>
-
-                    </>
-                  ))}
-
-            
-                  <div />
-                </>
-              ))}
+            <div className=" mt-10 mb-5 table-auto">
+              <ul>
+                {userOrders.map((order, index) => (
+                  <>
+                    <div className="flex mt-10 mb-5">
+                      <li className="font-semibold text-black-600 text-s uppercase w-1/5" key={`order_${order.id}`}>Commande n°{order.id}</li>
+                      <li className="font-semibold text-black-600 text-xs uppercase w-1/5">Statut: {order.status}</li>
+                    </div>
+                    <li>
+                      <div className="flex mt-10 mb-5">
+                      <li className="font-semibold text-black-600 text-xs uppercase w-1/5">Nom des articles</li>
+                      <li className="font-semibold text-black-600 text-xs uppercase w-1/5">Quantité:</li>
+                      <li className="font-semibold text-black-600 text-xs uppercase w-1/5">Prix:</li>
+                      </div>
+                      {order.order_items.map((orderItem, index) => (
+                        <>
+                          <div className=" mt-2 mb-2 flex ">
+                            <li className="font-semibold text-gray-600 text-xs uppercase w-1/5" >{orderItem.item.name}</li>
+                            <li className="font-semibold text-gray-600 text-xs uppercase w-1/5" >{orderItem.quantity}</li>
+                            <li className="font-semibold text-gray-600 text-xs uppercase w-1/5" >{orderItem.item.price} €</li>
+                          </div>
+                        </>
+                      ))}
+                    </li>
+                  </>
+                ))}
+              </ul>
             </div>
             : 'Aucune commande'}
 
