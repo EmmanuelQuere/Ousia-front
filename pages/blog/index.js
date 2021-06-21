@@ -1,4 +1,6 @@
 import Prismic from '@prismicio/client';
+import Link from 'next/link';
+
 const apiEndpoint = 'https://testprismicwithnext407.cdn.prismic.io/api/v2';
 const options = {};
 const Client = () => (Prismic.client(apiEndpoint, options));
@@ -18,9 +20,9 @@ const Blog = ({ res }) => {
   console.log(res);
   return (
     <div>
-      <h1>COUCOU ANOU</h1>
+      <h1 className="text-5xl text-center my-3">BLOG</h1>
       {res.map(article =>
-        <p key={article.id}>{article.uid}</p>
+        <Link href={`/blog/${article.uid}`} key={article.id}><li><a>{article.data.title[0].text}</a></li></Link>
       )}
     </div>
   )
