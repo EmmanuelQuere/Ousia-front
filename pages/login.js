@@ -15,6 +15,10 @@ const Login = () => {
     const myBody = new FormData(event.target);
     const myHeaders = new Headers();
 
+    let from_visitor = null
+    localStorage.getItem('visitor_cart')? from_visitor = true : from_visitor = false 
+
+
     fetch(`${process.env.url}/users/sign_in.json`, {
       method: "POST",
       headers: myHeaders,
@@ -27,7 +31,11 @@ const Login = () => {
         Cookies.set('isLoggedIn', true, { sameSite: 'lax' });
         dispatch(logIn(Cookies.get('token')));
         alert.show("Vous êtes connecté(e).", { type: types.SUCCESS })
-        Router.push('/');
+        if(from_visitor){
+          Router.push('/cart');
+        }else{
+          Router.push('/');
+        }
       }
       return response.json()})
     .then(response => {

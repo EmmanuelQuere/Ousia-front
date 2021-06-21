@@ -44,6 +44,9 @@ const CartProduct = (props) => {
       let newVisitorCart = JSON.parse(localStorage.getItem('visitor_cart'))
       newVisitorCart = newVisitorCart.filter(element => element.item.id !== id)
       localStorage.setItem('visitor_cart', JSON.stringify(newVisitorCart))
+      if (localStorage.getItem('visitor_cart') === "[]"){
+        localStorage.removeItem('visitor_cart')
+      }
       props.setCurrentUserCart(newVisitorCart)
     }
   }
@@ -103,7 +106,7 @@ const CartProduct = (props) => {
     <div className="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
       <div className="flex w-2/5">
         <div className="w-20">
-          <img className="h-24" src={props.images[0]} alt="image"></img>
+          {(props.images)? <img className="h-24" src={props.images[0]} alt="image"></img> : ""}  
         </div>
         <div className="flex flex-col justify-around ml-4 flex-grow">
           <span className="font-bold text-sm">{props.product.name}</span>
