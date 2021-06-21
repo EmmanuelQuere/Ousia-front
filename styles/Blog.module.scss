@@ -15,6 +15,14 @@
   @apply list-disc
 }
 
+.text a {
+  @apply text-red-500
+}
+
 /* IMAGE COMPONENTS */
+
+.image h3 {
+  @apply text-xs
+}
 
 /* QUOTE COMPONENTS */

@@ -4,7 +4,7 @@ import styles from './../../styles/Blog.module.scss';
 const BlogImageComponent = (props) => {
   console.log(props);
   return (
-    <section>
+    <section className={styles.image}>
       <img src={props.image.url} alt={props.image.alt}/>
       {props.caption ? <RichText render={props.caption} /> : <p></p>}
     </section>

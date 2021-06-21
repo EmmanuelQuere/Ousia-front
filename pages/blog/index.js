@@ -1,5 +1,6 @@
 import Prismic from '@prismicio/client';
 import Link from 'next/link';
+import ArticlePreview from './../../components/blog/ArticlePreview'
 
 const apiEndpoint = 'https://testprismicwithnext407.cdn.prismic.io/api/v2';
 const options = {};
@@ -22,7 +23,7 @@ const Blog = ({ res }) => {
     <div>
       <h1 className="text-5xl text-center my-3">BLOG</h1>
       {res.map(article =>
-        <Link href={`/blog/${article.uid}`} key={article.id}><li><a>{article.data.title[0].text}</a></li></Link>
+        <ArticlePreview article={article} key={article.id}/>
       )}
     </div>
   )
