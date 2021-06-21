@@ -1,34 +1,76 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import CartProduct from '../../components/CartProduct';
 import Link from 'next/link';
+import { useAlert, types } from 'react-alert';
 
 const Cart = () => {
   const [currentUserCart, setCurrentUserCart] = React.useState(null);
   const [deliveryPrice, setDeliveryPrice] = React.useState(10);
   const userToken = useSelector(state => state.token);
-
+  const alert = useAlert();
+  
   React.useEffect(
     () => {
-      if (userToken)
-      {let myHeaders = new Headers();
-      myHeaders.append("Authorization", `${userToken}`);
+      if (userToken){
+        let myHeaders = new Headers();
+        myHeaders.append("Authorization", `${userToken}`);
+        
+        let requestOptions = {
+          method: 'GET',
+          headers: myHeaders
+        };
 
-      let requestOptions = {
-        method: 'GET',
-        headers: myHeaders
-      };
-
-      fetch(`${process.env.url}/mycart`, requestOptions)
+        fetch(`${process.env.url}/mycart`, requestOptions)
         .then(response => response.json())
         .then(result => {
-          setCurrentUserCart(result)
+          setCurrentUserCart(result);
         })
-        .catch(error => console.log('error', error));}
+        .catch(error => console.log('error', error));
+      }else{
+        setCurrentUserCart(JSON.parse(localStorage.getItem('visitor_cart')));       
+      }
     }
     , []
-  )
+    )
+    
+    if(userToken && localStorage.getItem('visitor_cart')){
+      let visitor_cart = JSON.parse(localStorage.getItem('visitor_cart'))
+      
+      visitor_cart.forEach(cart_item => {
+        fetch(`${process.env.url}/cart_items.json`, {
+          method: 'POST',
+          headers: {
+              "Content-Type": "application/json",
+              "Authorization": `${userToken}`
+          },
+          body: JSON.stringify({cart_item: {item_id: `${cart_item.item.id}`, quantity: cart_item.quantity}})
+        })
+          .then(response => response.json())
+          .then(response => {
+              if (!response) { alert.show(`Une erreur est survenue, veuillez réessayer.`, { type: types.ERROR }) }
+            })
+            .catch(error => alert.show(`${error.message}`, { type: types.ERROR }))
+          });
+      localStorage.removeItem('visitor_cart')
 
+
+      let myHeaders = new Headers();
+        myHeaders.append("Authorization", `${userToken}`);
+        
+        let requestOptions = {
+          method: 'GET',
+          headers: myHeaders
+        };
+
+        fetch(`${process.env.url}/mycart`, requestOptions)
+        .then(response => response.json())
+        .then(result => {
+          setCurrentUserCart(result);
+        })
+        .catch(error => console.log('error', error));
+        }
+      
   const totalPrice = (cart) => {
     return Object.values(cart).reduce((t, { total }) => t + total, 0)
   }
@@ -51,11 +93,11 @@ const Cart = () => {
         </div>
         <div className="flex mt-10 mb-5">
           <h3 className="font-semibold text-gray-600 text-xs uppercase w-2/5">Produit</h3>
-          <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Quantité</h3>
-          <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Prix</h3>
-          <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Total</h3>
+          <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5">Quantité</h3>
+          <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5">Prix</h3>
+          <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5">Total</h3>
           </div>
-          {(!currentUserCart || currentUserCart.length === 0) ? <span className="text-gray-600 text-lg">Vous n'avez pas encore d'articles dans votre panier !</span> : currentUserCart.map(cartItem => <CartProduct key={cartItem.id} images={cartItem.images} product={cartItem.item} quantity={cartItem.quantity} item_id={cartItem.id} setCurrentUserCart={setCurrentUserCart} currentUserCart={currentUserCart}/>)}
+          {(!currentUserCart || currentUserCart.length === 0) ? <span className="text-gray-600 text-lg">Vous n'avez pas encore d'articles dans votre panier !</span> : (!userToken ? currentUserCart.map(cartItem => <CartProduct key={parseInt(cartItem.quantity, 10)} images={cartItem.item.images} product={cartItem.item} quantity={parseInt(cartItem.quantity, 10)} item_id={cartItem.item.id} setCurrentUserCart={setCurrentUserCart} currentUserCart={currentUserCart}/>) : currentUserCart.map(cartItem => <CartProduct key={cartItem.quantity} images={cartItem.images} product={cartItem.item} quantity={cartItem.quantity} item_id={cartItem.id} setCurrentUserCart={setCurrentUserCart} currentUserCart={currentUserCart} />))}
           <Link href="/shop">
             <a className="flex font-semibold text-indigo-600 text-sm mt-10">
               <svg className="fill-current mr-2 text-indigo-600 w-4" viewBox="0 0 448 512"><path d="M134.059 296H436c6.627 0 12-5.373 12-12v-56c0-6.627-5.373-12-12-12H134.059v-46.059c0-21.382-25.851-32.09-40.971-16.971L7.029 239.029c-9.373 9.373-9.373 24.569 0 33.941l86.059 86.059c15.119 15.119 40.971 4.411 40.971-16.971V296z" /></svg>
@@ -81,9 +123,15 @@ const Cart = () => {
               <span>Total</span>
               <span>{totalPrice(currentUserCart) + deliveryPrice} €</span>
             </div>
+            { userToken ?
             <Link href={'/cart/recap'}>
             <button className="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full">Payer ma commande</button>
-            </Link>            
+            </Link>
+            :
+            <Link href={'/signup'}>
+            <button className="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full">Payer ma commande</button>
+            </Link>
+            }            
           </div>
         </div>}
 
