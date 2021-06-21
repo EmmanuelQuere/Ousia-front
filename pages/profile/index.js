@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 const Profile = () => {
   const [currentUser, setCurrentUser] = React.useState({});
   const [userOrders, setUserOrders] = React.useState([]);
+
   const userToken = useSelector(state => state.token);
 
   React.useEffect(
@@ -35,6 +36,8 @@ const Profile = () => {
     , []
   )
 
+  console.log(userOrders)
+
   return (
     <div className="container mx-auto p-20">
       <div>
@@ -56,13 +59,43 @@ const Profile = () => {
       </section>
       <section className="text-center">
         <h3 className={styles.subtitle}>Mes commandes</h3>
-        {userOrders.length > 0  ?
-          <div className="grid grid-cols-1 gap-4">
-            {userOrders.map((order, index) => (
-              <p className="mt-2" key={`order_${order.id}`}>Commande n°{order.id} : {order.status}</p>
-            ))}
-          </div>
-          : 'Aucune commande'}
+        <div className="flex mt-10 mb-5">
+          <h3 className="font-semibold text-gray-600 text-xs uppercase w-2/5">Produit</h3>
+          <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Quantité</h3>
+          <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Prix</h3>
+          <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Total</h3>
+
+        </div>
+        <div >
+          {userOrders.length > 0 ?
+
+            <div className="flex mt-10 mb-5 table-auto flex-wrap">
+              {userOrders.map((order, index) => (
+                <>
+
+                  <h3 className="font-semibold text-gray-600 text-xs uppercase w-2/5" key={`order_${order.id}`}>Commande n°{order.id}</h3>
+
+                  <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">{order.status}</h3>
+                  {order.order_items.map((orderItem, index) => (
+      
+                      <>
+                          <h3 className="font-semibold text-gray-600 text-xs uppercase w-2/5" >Quantity{orderItem.quantity}</h3>
+                          <h3 className="font-semibold text-gray-600 text-xs uppercase w-2/5" >Price{orderItem.item.price}</h3>
+
+                    </>
+                  ))}
+
+            
+                  <div />
+                </>
+              ))}
+            </div>
+            : 'Aucune commande'}
+
+        </div>
+
+
+
 
       </section>
     </div>
