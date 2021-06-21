@@ -1,4 +1,5 @@
 import Prismic  from '@prismicio/client';
+import { RichText } from 'prismic-reactjs';
 
 const apiEndpoint = 'https://testprismicwithnext407.cdn.prismic.io/api/v2';
 const options = {};
@@ -34,15 +35,11 @@ const Article = ({ res }) => {
   console.log(res);
   return (
     <div>
-      <h1 className="text-5xl text-center my-2">{res.data.title[0].text}</h1>
+      <RichText render={res.data.title} />
       <section className="px-3 my-3">
-        <p>{res.data.body[0].primary.text[0].text}</p>
-      </section>
-      <section className="px-3 my-3">
-        <img src={res.data.body[1].primary.image.url} />
-      </section>
-      <section className="px-3 my-3">
-        <p>{res.data.body[2].primary.text[0].text}</p>
+        {res.data.body.map(element =>
+          (element.slice_type == "text") ? <RichText render={element.primary.text} /> : <p>On s'en fout</p>
+        )}
       </section>
     </div>
   )
