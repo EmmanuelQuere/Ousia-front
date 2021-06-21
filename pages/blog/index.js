@@ -9,7 +9,6 @@ const Client = () => (Prismic.client(apiEndpoint, options));
 export async function getStaticProps() {
   const document = await Client().query(Prismic.Predicates.at('document.type', 'post'));
   const res = document.results
-  console.log(res);
   return {
     props: {
       res
@@ -22,9 +21,11 @@ const Blog = ({ res }) => {
   return (
     <div>
       <h1 className="text-5xl text-center my-3">BLOG</h1>
-      {res.map(article =>
-        <ArticlePreview article={article} key={article.id}/>
-      )}
+      <div className="grid grid-cols-2">
+        {res.map(article =>
+          <ArticlePreview article={article} key={article.id}/>
+        )}
+      </div>
     </div>
   )
 }
