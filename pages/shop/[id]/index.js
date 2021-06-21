@@ -59,7 +59,6 @@ const Item = ({ item }) => {
             let visitor_cart = (JSON.parse(localStorage.getItem('visitor_cart')) || [])
             visitor_cart.push({item: item, quantity: quantity.current.value});
             localStorage.setItem('visitor_cart', JSON.stringify(visitor_cart));
-            console.log(visitor_cart);
         };
     }
 
