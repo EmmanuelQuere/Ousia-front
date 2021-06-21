@@ -1,0 +1,20 @@
+.container {
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* MAIN TITLE */
+.heading h1 {
+  @apply text-5xl text-center my-3
+}
+
+/* TEXT COMPONENTS */
+.text li {
+  @apply list-disc
+}
+
+/* IMAGE COMPONENTS */
+
+/* QUOTE COMPONENTS */

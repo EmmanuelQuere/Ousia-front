@@ -1,10 +1,13 @@
 import { RichText } from 'prismic-reactjs';
-import Image from 'next/image';
+import styles from './../../styles/Blog.module.scss';
 
 const BlogImageComponent = (props) => {
   console.log(props);
   return (
-    <img src={props.image.url}/>
+    <section>
+      <img src={props.image.url} alt={props.image.alt}/>
+      {props.caption ? <RichText render={props.caption} /> : <p></p>}
+    </section>
   )
 }
 

@@ -1,8 +1,10 @@
 import React from 'react';
 import Prismic  from '@prismicio/client';
 import { RichText } from 'prismic-reactjs';
+import styles from './../../../styles/Blog.module.scss';
 import BlogTextComponent from './../../../components/blog/BlogTextComponent'
 import BlogImageComponent from './../../../components/blog/BlogImageComponent'
+import BlogQuoteComponent from './../../../components/blog/BlogQuoteComponent'
 
 const apiEndpoint = 'https://testprismicwithnext407.cdn.prismic.io/api/v2';
 const options = {};
@@ -38,7 +40,8 @@ const Article = ({ res }) => {
   console.log(res);
   const components = {
     text: BlogTextComponent,
-    image_with_caption: BlogImageComponent
+    image_with_caption: BlogImageComponent,
+    quote: BlogQuoteComponent
   };
 
   let component = res.data.body.map(element => {
@@ -50,12 +53,14 @@ const Article = ({ res }) => {
   console.log(component);
   return (
     <div>
-      <RichText render={res.data.title} />
-      <section className="px-3 my-3">
+      <div className={styles.heading}>
+        <RichText render={res.data.title} />
+      </div>
+      <div className={styles.container}>
         {component.map(data =>
           React.createElement(data.component, data.props)
         )}
-      </section>
+      </div>
     </div>
   )
 }

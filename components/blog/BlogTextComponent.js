@@ -1,9 +1,12 @@
 import { RichText } from 'prismic-reactjs';
+import styles from './../../styles/Blog.module.scss';
 
 const BlogTextComponent = (props) => {
-  console.log(props);
+  console.dir(props);
   return (
+    <section className={styles.text}>
       <RichText render={props.text}/>
+    </section>
   )
 }
 
