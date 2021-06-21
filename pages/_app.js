@@ -19,8 +19,6 @@ function MyApp({ Component, pageProps }) {
   <>
   <Head>
      <meta name="viewport" content="width=device-width, initial-scale=1" />
-     <title>Ousia Drinks</title>
-     <link rel="shortcut icon" href="/logo.png" />
   </Head>
   <Provider store={store}>
     <AlertProvider template={AlertTemplate} {...alertOptions}>
