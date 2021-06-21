@@ -5,7 +5,7 @@ import Router from 'next/router';
 import CheckoutRecap from "../../components/CheckoutRecap";
 import CheckoutMessage from "../../components/CheckoutMessage";
 
-const stripePromise = loadStripe("pk_test_51ILoi9D5i13aYcbUguAzFyWWFijcBAUTSwKs82B6piA6SUdImu8A94Ys7TKbYICjB98l0Ev228dHHSvpPciTtR0F00oqJphB5S");
+const stripePromise = loadStripe(`${process.env.NEXT_PUBLIC_STRIPE_KEY}`);
 
 const Recap = () => {
   const [title, setTitle] = useState(null);
