@@ -39,6 +39,8 @@ const Profile = () => {
     , []
   )
 
+  console.log(userOrders)
+
   return (
     <div className="container mx-auto p-20">
       <div>
@@ -84,7 +86,7 @@ const Profile = () => {
                           <div className=" mt-2 mb-2 flex ">
                             <li className="font-semibold text-gray-600 text-xs uppercase w-1/5" >{orderItem.item.name}</li>
                             <li className="font-semibold text-gray-600 text-xs uppercase w-1/5" >{orderItem.quantity}</li>
-                            <li className="font-semibold text-gray-600 text-xs uppercase w-1/5" >{orderItem.item.price} €</li>
+                            <li className="font-semibold text-gray-600 text-xs uppercase w-1/5"  value={totalOrder}  >{orderItem.item.price} €</li>
                           </div>
                         </>
                       ))}
