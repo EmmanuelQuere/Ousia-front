@@ -67,7 +67,7 @@ const Article = ({ res }) => {
         <div className="w-48 lg:w-1/3 border-b-4 border-red-700 h-1 mx-auto mb-4"></div>
       </div>
       <div className={styles.container}>
-        {component.map(data => data.component ? React.createElement(data.component, data.props) : <p></p>)}
+        {component.map((data, index) => data.component ? React.createElement(data.component, data.props) : <p></p>)}
       </div>
     </div>
   )
