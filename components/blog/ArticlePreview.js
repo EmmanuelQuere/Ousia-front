@@ -14,7 +14,7 @@ const ArticlePreview = (props) => {
           <div className="p-3">
             <a className="text-lg text-center">{props.article.data.title[0].text}</a>
             {props.article.tags.map(tag =>
-              <div className="w-1/4 my-1">
+              <div className="w-1/4 my-1" key={`${tag}-${props.article.id}`}>
                 <p className="border rounded-lg p-1 text-center text-sm">{`#${tag}`}</p>
               </div>
             )}

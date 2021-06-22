@@ -24,7 +24,7 @@ const Blog = ({ res }) => {
       <h1 className="text-5xl text-center my-3">BLOG</h1>
       <div className="w-48 lg:w-1/3 border-b-4 border-red-700 h-1 mx-auto mb-4"></div>
       <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4">
-        {res.map(article =>
+        {res.map((article, index) =>
           <ArticlePreview article={article} key={article.id}/>
         )}
       </div>

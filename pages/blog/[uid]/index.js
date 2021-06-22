@@ -56,7 +56,7 @@ const Article = ({ res }) => {
     embed: BlogEmbedComponent
   };
 
-  let component = res.data.body.map(element => {
+  let component = res.data.body.map( (element, index)=> {
     let BlogComponent = determineElement(element.slice_type)
     return {component: BlogComponent, props: element}
   })
