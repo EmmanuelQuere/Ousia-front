@@ -124,3 +124,54 @@
   background-position: center;
   object-fit: cover;
 }
+
+.blockquote {
+  padding: 60px 80px 40px;
+  position: relative;
+}
+.blockquote p {
+  font-family: 'Arial';
+  font-size: 35px;
+  font-weight: 700px;
+  text-align: center;
+}
+
+.blockquote p::before {
+  content: "\f095";
+  font-family: 'Arial';
+  display: inline-block;
+  padding-right: 6px;
+  vertical-align: middle;
+  font-size: 180px;
+ }
+
+.blockquote::before {
+  position: absolute;
+  font-family: 'Arial';
+  top: -1.5rem;
+  left: 3rem;
+  content:"\201C";
+  font-size: 200px;
+  color: rgba(0,0,0,0.1);
+}
+
+.images {
+  visibility: inherit;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  box-sizing: border-box;
+  padding: 0px;
+  border: none;
+  margin: auto;
+  display: block;
+  width: 0px;
+  height: 0px;
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 100%;
+  max-height: 100%;
+  @apply rounded filter drop-shadow-lg;
+}

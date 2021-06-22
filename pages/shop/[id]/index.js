@@ -62,6 +62,7 @@ const Item = ({ item }) => {
                 visitor_cart.push({id: item.id, item: item, quantity: parseInt(quantity.current.value, 10)});
             }
             localStorage.setItem('visitor_cart', JSON.stringify(visitor_cart));
+            alert.show("Article ajouté au panier !", { type: types.SUCCESS });
         };
     }
 

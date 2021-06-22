@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import styles from '../styles/Shop.module.scss'
 
 const ProductCardOdd = (props) => {
   return (
@@ -12,7 +13,8 @@ const ProductCardOdd = (props) => {
         <p className="text-sm leading-relaxed mb-5 text-gray-700">
           {props.item.description}
         </p>
-        <p className="font-bold text-gray-800">{props.item.price} €</p>
+        <p className="font-bold text-gray-800 mb-10">{props.item.price} €</p>
+        <button className={styles.confirmButton}>En voir plus</button>
       </article>
     </Link>
   )
