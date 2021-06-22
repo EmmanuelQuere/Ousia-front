@@ -24,7 +24,6 @@ export const getServerSideProps = async (context) => {
     const id = context.params.id;
     const res = await fetch(`${process.env.url}/items/` + id + `.json`);
     const data = await res.json();
-    console.log(data);
     return {
         props: {item: data}
     }
