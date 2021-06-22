@@ -37,6 +37,14 @@ export async function getStaticProps(context) {
 };
 
 const Article = ({ res }) => {
+  const determineElement = (type) => {
+    if (!components[type]) {
+      console.warn(`${type} : la gestion de ce type d'élément n'est pas prévue.`);
+    } else {
+      return components[type]
+    }
+  };
+
   console.log(res);
   const components = {
     text: BlogTextComponent,
@@ -45,7 +53,7 @@ const Article = ({ res }) => {
   };
 
   let component = res.data.body.map(element => {
-    let BlogComponent = components[element.slice_type];
+    let BlogComponent = determineElement(element.slice_type)
     let props = element.primary
     return {component: BlogComponent, props: props}
   })
@@ -58,8 +66,7 @@ const Article = ({ res }) => {
         <div className="w-48 lg:w-1/3 border-b-4 border-red-700 h-1 mx-auto mb-4"></div>
       </div>
       <div className={styles.container}>
-        {component.map(data =>
-          React.createElement(data.component, data.props)
+        {component.map(data => data.component ? React.createElement(data.component, data.props) : <p></p>
         )}
       </div>
     </div>
