@@ -6,6 +6,7 @@ import { transitions, positions, Provider as AlertProvider } from 'react-alert';
 import AlertTemplate from './../components/AlertTemplate';
 import '../styles/globals.css';
 import '../styles/tailwind_utilities.css';
+import "mapbox-gl/dist/mapbox-gl.css";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 
 const alertOptions = {
