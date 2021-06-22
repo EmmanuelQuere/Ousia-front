@@ -24,7 +24,6 @@ export const getServerSideProps = async (context) => {
     const id = context.params.id;
     const res = await fetch(`${process.env.url}/items/` + id + `.json`);
     const data = await res.json();
-    console.log(data);
     return {
         props: {item: data}
     }
@@ -56,7 +55,14 @@ const Item = ({ item }) => {
         }
         else
         {
-            alert.show(`Veuillez vous connecter pour ajouter des articles à votre panier.`, { type: types.ERROR })
+            let visitor_cart = (JSON.parse(localStorage.getItem('visitor_cart')) || [])
+            if(visitor_cart.find(element => element.id === item.id)){
+                visitor_cart.find(element => element.id === item.id).quantity = visitor_cart.find(element => element.id === item.id).quantity + parseInt(quantity.current.value, 10)
+            }else{
+                visitor_cart.push({id: item.id, item: item, quantity: parseInt(quantity.current.value, 10)});
+            }
+            localStorage.setItem('visitor_cart', JSON.stringify(visitor_cart));
+            alert.show("Article ajouté au panier !", { type: types.SUCCESS });
         };
     }
 

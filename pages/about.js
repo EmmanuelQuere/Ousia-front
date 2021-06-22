@@ -1,7 +1,5 @@
 import styles from '../styles/Home.module.scss';
 import Image from 'next/image';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGlassMartini } from "@fortawesome/free-solid-svg-icons";
 
 const About = () => {
 
