@@ -55,6 +55,7 @@ const Article = ({ res }) => {
     <div>
       <div className={styles.heading}>
         <RichText render={res.data.title} />
+        <div className="w-48 lg:w-1/3 border-b-4 border-red-700 h-1 mx-auto mb-4"></div>
       </div>
       <div className={styles.container}>
         {component.map(data =>

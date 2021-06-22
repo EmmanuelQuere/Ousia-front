@@ -7,22 +7,66 @@
 
 /* MAIN TITLE */
 .heading h1 {
-  @apply text-5xl text-center my-3
+  @apply text-5xl text-center my-3 px-2
 }
 
 /* TEXT COMPONENTS */
-.text li {
-  @apply list-disc
+.text {
+  h2 {
+    @apply text-xl text-center text-red-800 mt-2 mb-4 px-2
+  }
+
+  p {
+    @apply my-2 text-justify whitespace-normal
+  }
+
+  a {
+    @apply text-red-600
+  }
+
+  li {
+    @apply list-disc list-inside text-justify
+  }
+
+  strong {
+    @apply font-bold text-red-800
+  }
 }
 
-.text a {
-  @apply text-red-500
-}
 
 /* IMAGE COMPONENTS */
+.image {
+  @apply my-4
+}
 
 .image h3 {
-  @apply text-xs
+  @apply text-xs italic
 }
 
 /* QUOTE COMPONENTS */
+.quote {
+  padding: 20px 80px 20px;
+  position: relative;
+}
+.quote p {
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.quote p::before {
+  font-family: 'Arial';
+  display: inline-block;
+  padding-right: 6px;
+  vertical-align: middle;
+  font-size: 150px;
+ }
+
+.quote::before {
+  position: absolute;
+  font-family: 'Arial';
+  top: -3.7rem;
+  left: 3.2rem;
+  content:"\201C";
+  font-size: 200px;
+  color: rgba(0,0,0,0.1);
+}
