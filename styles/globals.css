@@ -20,4 +20,27 @@ a {
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: "Bison";
+  src: url("../public/fonts/Bison-DemiBold.ttf");
+  font-style: medium;
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Optima";
+  src: url("../public/fonts/Optima.ttc");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Spot";
+  src: url("../public/fonts/Spot-Normal.otf");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+
 @tailwind components;

@@ -9,12 +9,12 @@ const Footer = () => {
 
         <>
             <div className="bg-gray-100 text-gray-600 pb-4">
-                <div className="mx-auto container pt-4 lg:pt-10 flex flex-col items-center justify-center font-mono ">
+                <div className="mx-auto container pt-4 lg:pt-10 flex flex-col items-center justify-center">
                     <div>
                         <Image src="/logo.png" width={92} height={92} viewBox="0 0 79 92" fill="none" />
                     </div>
                     <div className="flex flex-col md:items-center f-f-l pt-3">
-                    <h2 className="text-center font-mono text-gray-700">Rejoignez la communauté des Ousiologues</h2> 
+                    <h2 className="text-center text-gray-700 text-xl tracking-wider" style={{fontFamily:"Bison, sans-serif"}}>Rejoignez la communauté des Ousiologues</h2> 
                     <div className="flex content-center justify-center flex-wrap m-4">
                         <a className="btn btn-outline-light btn-floating m-1" href="https://www.facebook.com/ousiadrinks" role="button"
                         ><FontAwesomeIcon icon={faFacebookF} className="fa-2x mx-4"  />

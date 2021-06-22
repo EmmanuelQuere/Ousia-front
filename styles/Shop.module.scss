@@ -3,11 +3,28 @@
 }
 
 .title {
-  padding:2rem;
-  line-height: 1.15;
-  font-size: 2.5rem;
   text-align: center;
-  text-transform: uppercase;
+  font-family:'Bison', sans-serif;
+  font-size: 3rem;
+  line-height: 1;
+  margin-top:2.5rem;
+  margin-bottom:1rem;
+}
+
+.divider{
+  width: 12rem;
+  height: 0.25rem;
+  margin-left: auto;
+  margin-right:auto;
+  margin-bottom: 1rem;  
+  @apply border-b-4;
+  @apply border-red-700;
+}
+
+@media (min-width: 600px) {
+  .divider {
+    width: 33.333333%;
+  }
 }
 
 .subtitle {
@@ -35,7 +52,10 @@
   @apply bg-indigo-900;
 }
 
-.divider{
-  margin-bottom:3rem;
-  border:1px solid black
+.container {
+  padding: 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @apply text-center;
 }

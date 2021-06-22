@@ -1,7 +1,6 @@
+import styles from '../../styles/Shop.module.scss'
 import ProductCardEven from "../../components/ProductCardEven"
 import ProductCardOdd from "../../components/ProductCardOdd"
-import styles from '../../styles/Shop.module.scss'
-
 
 export const getServerSideProps = async (context) => {
   const res = await fetch(`${process.env.url}/items.json`);
@@ -13,8 +12,8 @@ export const getServerSideProps = async (context) => {
 
 const Shop = ({ items }) => {
   return (
-    <div className="container mx-auto p-20">
-      <div>
+    <div className="container mx-auto w-2/3">
+      <div className="mb-20">
         <h2 className={styles.title}>Nos produits</h2>
         <hr className={styles.divider}/>
       </div>

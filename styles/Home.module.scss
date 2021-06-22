@@ -15,56 +15,47 @@
   align-items: center;
 }
 
-.footer {
-  width: 100%;
-  height: 100px;
-  border-top: 1px solid #eaeaea;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.footer a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-grow: 1;
-}
-
-.title a {
-  color: #0070f3;
-  text-decoration: none;
-}
-
-.title a:hover,
-.title a:focus,
-.title a:active {
-  text-decoration: underline;
+.leadTitle{
+  @apply text-6xl;
+  @apply tracking-wider;
+  @apply leading-normal;
+  @apply text-gray-200;
+  font-family: 'Bison', sans-serif;
 }
 
 .title {
-  margin: 0;
-  line-height: 1.15;
-  font-size: 4rem;
-}
-
-.title,
-.description {
   text-align: center;
+  font-family:'Bison', sans-serif;
+  font-size: 3rem;
+  line-height: 1;
+  margin-top:2.5rem;
+  margin-bottom:1rem;
 }
 
-.description {
-  line-height: 1.5;
-  font-size: 1.5rem;
+.subtitle {
+  font-family:'Bison', sans-serif;
+  text-align: center;
+  width:100%;
+  margin: 0.5rem 0;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  @apply text-gray-800;
 }
 
-.code {
-  background: #fafafa;
-  border-radius: 5px;
-  padding: 0.75rem;
-  font-size: 1.1rem;
-  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-    Bitstream Vera Sans Mono, Courier New, monospace;
+.divider{
+  width: 12rem;
+  height: 0.25rem;
+  margin-left: auto;
+  margin-right:auto;
+  margin-bottom: 1rem;  
+  @apply border-b-4;
+  @apply border-red-700;
+}
+
+@media (min-width: 600px) {
+  .divider {
+    width: 33.333333%;
+  }
 }
 
 .grid {
@@ -107,15 +98,14 @@
 }
 
 .logo {
-  height: 1em;
-  margin-left: 0.5rem;
+  @apply text-3xl;
+  @apply font-semibold;
+  @apply p-1;
+  font-family:'Bison', sans-serif
 }
 
-@media (max-width: 600px) {
-  .grid {
-    width: 100%;
-    flex-direction: column;
-  }
+.logo:hover{
+  @apply text-gray-700
 }
 
 #jumbotron_banner{
@@ -174,4 +164,32 @@
   min-height: 100%;
   max-height: 100%;
   @apply rounded filter drop-shadow-lg;
+}
+
+.homeButton {
+  margin: 0.5rem;
+  padding: 1rem 2rem;
+  @apply bg-red-700;
+  @apply shadow-sm;
+  @apply tracking-wider;
+  @apply text-white;
+  @apply rounded-full
+}
+
+.homeButton:hover{
+  @apply shadow-lg;
+  @apply bg-red-900;
+}
+
+@media (max-width: 600px) {
+  .grid {
+    width: 100%;
+    flex-direction: column;
+  }
+  .homeButton{
+    @apply text-sm;
+  }
+  .leadTitle{
+    @apply text-5xl;
+  }
 }

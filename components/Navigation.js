@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingBasket, faUser } from "@fortawesome/free-solid-svg-icons";
+import styles from '../styles/Home.module.scss'
 
 const Navigation = () => {
 
@@ -16,10 +17,10 @@ const Navigation = () => {
         <nav className="sticky top-0 p-2 z-50 bg-white backdrop-filter backdrop-blur-lg bg-opacity-80 border-b border-gray-200 firefox:bg-opacity-20">
         <div className="mx-auto">
         <div className="flex flex-wrap items-center justify-around text-gray-900">
-          <Link href="/"><a className="text-2xl font-semibold hover:text-gray-700 p-2">Ousia</a></Link>
+          <Link href="/"><a className={styles.logo}>Ousia</a></Link>
             <div className="flex flex-wrap items-center justify-center p-2 space-x-6 text-sm font-semibold">
-              <Link href="/shop"><a className="hover:text-gray-700">Nos produits</a></Link>
-              <Link href="/locations"><a className="hover:text-gray-700">Nos points de vente</a></Link>
+              <Link href="/shop"><a className="hover:text-gray-700">Boutique</a></Link>
+              <Link href="/locations"><a className="hover:text-gray-700">Points de vente</a></Link>
               <Link href="/about"><a className="hover:text-gray-700">Qui sommes-nous ?</a></Link>
             </div>
             <div className="flex flex-wrap justify-end">
@@ -38,10 +39,10 @@ const Navigation = () => {
       <nav className="sticky top-0 p-2 z-50 bg-white backdrop-filter backdrop-blur-lg bg-opacity-80 border-b border-gray-200 firefox:bg-opacity-20">
         <div className="mx-auto">
         <div className="flex flex-wrap items-center justify-around text-gray-900">
-          <Link href="/"><a className="text-2xl font-semibold hover:text-gray-700 p-2">Ousia</a></Link>
+          <Link href="/"><a className={styles.logo}>Ousia</a></Link>
             <div className="flex flex-wrap items-center justify-center p-2 space-x-6 text-sm font-semibold">
-              <Link href="/shop"><a className="hover:text-gray-700">Nos produits</a></Link>
-              <Link href="/locations"><a className="hover:text-gray-700">Nos points de vente</a></Link>
+              <Link href="/shop"><a className="hover:text-gray-700">Boutique</a></Link>
+              <Link href="/locations"><a className="hover:text-gray-700">Points de vente</a></Link>
               <Link href="/about"><a className="hover:text-gray-700">Qui sommes-nous ?</a></Link>
             </div>
             <div className="flex flex-wrap justify-end">
