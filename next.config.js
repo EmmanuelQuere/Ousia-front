@@ -18,5 +18,8 @@ module.exports = () => {
     env: {
       url: configs.api,
     },
+    images: {
+      domains: ['images.prismic.io'],
+    }
   }
 }
