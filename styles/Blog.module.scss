@@ -1,5 +1,5 @@
 .container {
-  padding: 0 2rem;
+  padding: 0 4rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -24,8 +24,20 @@
     @apply text-red-600
   }
 
+  ul {
+    @apply list-disc;
+  }
+
+  ol {
+    @apply list-decimal;
+  }
+
   li {
-    @apply list-disc list-inside text-justify
+    @apply list-inside text-justify py-1
+  }
+
+  em {
+    @apply italic
   }
 
   strong {
