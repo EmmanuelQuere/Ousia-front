@@ -5,8 +5,8 @@ const BlogImageComponent = (props) => {
   console.log(props);
   return (
     <section className={styles.image}>
-      <img src={props.image.url} alt={props.image.alt}/>
-      {props.caption ? <RichText render={props.caption} /> : <p></p>}
+      <img src={props.primary.image.url} alt={props.primary.image.alt}/>
+      {props.primary.caption ? <RichText render={props.primary.caption} /> : <p></p>}
     </section>
   )
 }

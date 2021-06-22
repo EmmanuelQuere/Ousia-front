@@ -5,7 +5,7 @@ const BlogTextComponent = (props) => {
   console.dir(props);
   return (
     <section className={styles.text}>
-      <RichText render={props.text}/>
+      <RichText render={props.primary.text}/>
     </section>
   )
 }

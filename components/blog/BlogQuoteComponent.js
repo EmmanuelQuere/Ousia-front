@@ -5,7 +5,7 @@ const BlogQuoteComponent = (props) => {
   console.dir(props);
   return (
     <section className={styles.quote}>
-      <RichText render={props.quote}/>
+      <RichText render={props.primary.quote}/>
     </section>
   )
 }
