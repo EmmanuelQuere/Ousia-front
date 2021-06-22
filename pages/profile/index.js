@@ -39,8 +39,6 @@ const Profile = () => {
     , []
   )
 
-  console.log(userOrders)
-
   return (
     <div className="container mx-auto p-20">
       <div>
@@ -73,20 +71,24 @@ const Profile = () => {
                   <>
                     <div className="flex mt-10 mb-5">
                       <li className="font-semibold text-black-600 text-s uppercase w-1/5" key={`order_${order.id}`}>Commande n°{order.id}</li>
+                      <li className="font-semibold text-black-600 text-xs uppercase w-1/5">Commande effectuée le </li>
                       <li className="font-semibold text-black-600 text-xs uppercase w-1/5">Statut: {order.status}</li>
+                      <li className="font-semibold text-black-600 text-xs uppercase w-1/5">Prix total: {order.total} €</li>
+
+
                     </div>
                     <li>
                       <div className="flex mt-10 mb-5">
                       <li className="font-semibold text-black-600 text-xs uppercase w-1/5">Nom des articles</li>
                       <li className="font-semibold text-black-600 text-xs uppercase w-1/5">Quantité:</li>
-                      <li className="font-semibold text-black-600 text-xs uppercase w-1/5">Prix:</li>
+                      <li className="font-semibold text-black-600 text-xs uppercase w-1/5">Prix unitaire:</li>
                       </div>
                       {order.order_items.map((orderItem, index) => (
                         <>
                           <div className=" mt-2 mb-2 flex ">
                             <li className="font-semibold text-gray-600 text-xs uppercase w-1/5" >{orderItem.item.name}</li>
                             <li className="font-semibold text-gray-600 text-xs uppercase w-1/5" >{orderItem.quantity}</li>
-                            <li className="font-semibold text-gray-600 text-xs uppercase w-1/5"  value={totalOrder}  >{orderItem.item.price} €</li>
+                            <li className="font-semibold text-gray-600 text-xs uppercase w-1/5" >{orderItem.item.price} €</li>
                           </div>
                         </>
                       ))}
