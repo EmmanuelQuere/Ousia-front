@@ -13,7 +13,9 @@ const ProductCardOdd = (props) => {
         <p className="text-sm leading-relaxed mb-5 text-gray-700">
           {props.item.description}
         </p>
-        <p className="font-bold text-gray-800 mb-10">{props.item.price} €</p>
+        <p className="text-xl font-bold text-gray-900 mb-10">{props.item.price} €
+        <span className="text-xs leading-relaxed mb-5 text-gray-700 font-normal align-middle pl-2">les 6 bouteilles.</span>
+        </p>
         <button className={styles.confirmButtonWarm}>En voir plus</button>
       </article>
     </Link>
