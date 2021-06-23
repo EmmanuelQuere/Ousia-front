@@ -13,11 +13,11 @@ const ArticlePreview = (props) => {
           </div>
           <div className="p-3">
             <a className="text-lg text-center">{props.article.data.title[0].text}</a>
-            {props.article.tags.map(tag =>
-              <div className="w-1/4 my-1" key={`${tag}-${props.article.id}`}>
-                <p className="border rounded-lg p-1 text-center text-sm">{`#${tag}`}</p>
-              </div>
-            )}
+              <div className="w-1/4 my-1 flex flex-row">
+                {props.article.tags.map(tag =>
+                    <Link href={`/blog/tag/${tag}`} key={`${tag}-${props.article.id}`}><a className="bg-white text-red-800 border border-red-800 rounded-md p-0.5 text-sm hover:bg-red-800 hover:text-white m-1">{`#${tag}`}</a></Link>
+                )}
+            </div>
           </div>
         </div>
       </Link>
