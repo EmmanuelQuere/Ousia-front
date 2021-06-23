@@ -6,13 +6,24 @@ import styles from '../styles/Home.module.scss'
 
 export default function Home() {
   const [isModaleOpen, setModaleStatus] = useState(false);
+  const [shouldShowModal, _setShouldShowModal] = useState(true);
+  const shouldShowModalRef = useRef(shouldShowModal);
+  const setShouldShowModal = data => {
+    shouldShowModalRef.current = data;
+    _setShouldShowModal(data);
+  }
   const historyRef = useRef(null);
+
   const executeScroll = () => historyRef.current.scrollIntoView();
   const [scrollPosition, setScrollPosition] = useState(0);
   const handleScroll = () => {
-    const position = window.pageYOffset;
-    setScrollPosition(position);
-    setModaleStatus(true);
+    const currentPosition = window.pageYOffset;
+    const pageHeight = window.outerHeight
+    if (currentPosition/pageHeight > 1 && shouldShowModalRef.current ) {
+      setScrollPosition(currentPosition);
+      setModaleStatus(true);
+      setShouldShowModal(false)
+    }
   };
 
   useEffect(() => {
@@ -24,7 +35,7 @@ export default function Home() {
   }, []);
 
   const closeModalHandler = () => {
-    setModaleStatus(false)
+    setModaleStatus(false);
   };
 
   return (
@@ -137,7 +148,6 @@ export default function Home() {
         </div>
 
         {isModaleOpen ? <div onClick={closeModalHandler} className={styles.modalDrop}></div> : null}
-        <button onClick={() => setModaleStatus(true)} className="border">Open modal</button>
         <EmailModal isModaleOpen={isModaleOpen} closeModalHandler={closeModalHandler} />
 
       </section>
