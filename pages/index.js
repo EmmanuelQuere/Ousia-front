@@ -1,8 +1,11 @@
+import { useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from '../styles/Home.module.scss'
 
 export default function Home() {
+  const historyRef = useRef(null)
+  const executeScroll = () => historyRef.current.scrollIntoView()
   return (
     <>
       <div id={styles.jumbotron_banner} className="relative hero-image bg-right-bottom bg-cover flex" >
@@ -12,21 +15,21 @@ export default function Home() {
             <div className={styles.leadTitle}>Ousia, l'essence même de l'apéritif</div>
             <div className="text-3xl leading-normal mt-0 mb-5 text-gray-200 tracking-wider" style={{fontFamily:"'Bison', sans-serif"}}>Cocktails sophistiqués, sans alcool et prêts à boire</div>
             <div className="flex flex-wrap justify-center">
-              <Link href="/shop"><a className={styles.homeButton}>Nos produits</a></Link>
-              <Link href="/about"><a className={styles.homeButton}>Notre histoire</a></Link>
+              <Link href="/shop"><a className={styles.confirmButtonWarm}>Nos produits</a></Link>
+              <button className={styles.confirmButtonCold} onClick={executeScroll}>Notre histoire</button>
             </div>
           </div>
         </div>
       </div>
 
-      <div className={`${styles.container} px-6`}>
-        <section className="bg-white-100 border-b py-8">
+      <div className={`${styles.container} px-6`} ref={historyRef}>
+        <section className="bg-white-100 border-b py-12">
           <div className="container max-w-5xl mx-auto m-8">
             <h2 className={styles.title} >
               Pourquoi Ousia ?
             </h2>
             <div className={styles.divider}></div>
-            <div className="flex flex-row flex-wrap items-center">
+            <div className="flex flex-row flex-wrap items-center py-20">
               <div className="flex-auto sm:flex-1 px-2">
                 <p className="text-gray-600 mb-8">
                   L'apéritif, moment convivial et rassembleur par essence est trop souvent lié à la consommation d'alcool. Pourtant, de nombreuses personnes ne peuvent pas ou ne veulent pas boire d'alcool et n'ont pas le choix d'une vraie expérience alternative
@@ -48,24 +51,48 @@ export default function Home() {
             </div>
           </section>
         </div>
-        <section className="bg-gray-100 border-b py-8">
+        <section className="bg-ousiaBlue-light py-12">
+          <div className={styles.container}>
+          <div className="max-w-5xl mx-auto">
+            <h2 className={styles.title}>
+              La marque
+            </h2>
+            <div className={styles.divider}></div>
+            <div className="flex flex-row flex-wrap items-center py-20">
+              <div className="flex-auto sm:flex-1 px-2 filter drop-shadow-lg">
+                <Image
+                  src="/jumbotron.jpg"
+                  alt="Ousia products"
+                  width={500}
+                  height={500}
+                  className="rounded"
+                />
+              </div>
+              <div className="flex-auto sm:flex-1 px-20">
+                <div className="mx-auto leading-7">
+                  <p className="text-xl pb-8">Une boisson <span className="font-bold text-ousiaBlue">Ousia</span> c'est...</p>
+                  <ul>
+                    <li className="list-none px-3 m-2">Sans alcool 🍸</li>
+                    <li className="list-none px-3 m-2">Prêt à boire 🚀</li>
+                    <li className="list-none px-3 m-2">100% naturel 🌿</li>
+                    <li className="list-none px-3 m-2">Peu calorique ☀️</li>
+                    <li className="list-none px-3 m-2">Fait en France 🇫🇷</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="py-12">
           <div className={styles.container}>
           <div className="max-w-5xl mx-auto">
             <h2 className={styles.title}>
               Le mot des fondateurs
             </h2>
             <div className={styles.divider}></div>
-            <div className="flex flex-row flex-wrap items-center">
-              <div className="flex-auto sm:flex-1 px-2 filter drop-shadow-lg">
-                <Image
-                  src="/ousiafounders.png"
-                  alt="Picture of the author"
-                  width={500}
-                  height={500}
-                  className="rounded"
-                />
-              </div>
-              <div className="flex-auto sm:flex-1 px-2">
+            <div className="flex flex-row flex-wrap items-center py-20">
+            <div className="flex-auto sm:flex-1 px-2">
                 <blockquote className={styles.blockquote}>
                   Tous les trois, on aime bien prendre l'apéro. Mais ce qu'on aime avant tout c'est de le partager
                   avec nos amis et familles autour de boissons sympas et de petites choses à manger.
@@ -74,7 +101,16 @@ export default function Home() {
                   ne pouvaient pas boire d'alcool. Ce qui, parfois, peut entamer la convivialité partagée autour de ce
                   moment.
                 </blockquote>
-              </div>
+            </div>
+            <div className="flex-auto sm:flex-1 px-2 filter drop-shadow-lg">
+              <Image
+                src="/ousiafounders.png"
+                alt="Picture of the author"
+                width={500}
+                height={500}
+                className="rounded"
+              />
+            </div>              
           </div>
         </div>
         </div>

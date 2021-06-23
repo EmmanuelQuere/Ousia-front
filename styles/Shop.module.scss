@@ -18,7 +18,7 @@
   margin-right:auto;
   margin-bottom: 1rem;  
   @apply border-b-4;
-  @apply border-red-700;
+  @apply border-ousiaBlue;
 }
 
 @media (min-width: 600px) {
@@ -33,8 +33,8 @@
   font-weight: bold;
 }
 
-.confirmButton {
-  @apply bg-indigo-700;
+.confirmButtonCold {
+  @apply bg-ousiaBlue;
   @apply px-5;
   @apply py-3;
   @apply mx-auto;
@@ -47,9 +47,28 @@
   @apply rounded-full
 }
 
-.confirmButton:hover{
+.confirmButtonCold:hover{
   @apply shadow-lg;
-  @apply bg-indigo-900;
+  @apply bg-blue-900;
+}
+
+.confirmButtonWarm {
+  @apply bg-ousiaOrange;
+  @apply px-5;
+  @apply py-3;
+  @apply mx-auto;
+  @apply text-sm;
+  @apply shadow-sm;
+  @apply font-medium;
+  @apply tracking-wider;
+  @apply border;
+  @apply text-white;
+  @apply rounded-full
+}
+
+.confirmButtonWarm:hover{
+  @apply shadow-lg;
+  @apply bg-red-900;
 }
 
 .container {

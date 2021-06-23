@@ -1,5 +1,4 @@
 import Prismic from '@prismicio/client';
-import Link from 'next/link';
 import styles from './../../styles/Blog.module.scss';
 import ArticlePreview from './../../components/blog/ArticlePreview';
 
@@ -21,9 +20,9 @@ const Blog = ({ res }) => {
   console.log(res);
   return (
     <div className={`${styles.container} h-full `}>
-      <h1 className="text-5xl text-center my-3">BLOG</h1>
-      <div className="w-48 lg:w-1/3 border-b-4 border-red-700 h-1 mx-auto mb-4"></div>
-      <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4">
+      <h1 className={styles.title}>BLOG</h1>
+      <div className={styles.divider}></div>
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4 mt-10">
         {res.map(article =>
           <ArticlePreview article={article} key={article.id}/>
         )}

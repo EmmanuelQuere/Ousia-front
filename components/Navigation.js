@@ -22,7 +22,6 @@ const Navigation = () => {
               <Link href="/shop"><a className="hover:text-gray-700">Boutique</a></Link>
               <Link href="/locations"><a className="hover:text-gray-700">Points de vente</a></Link>
               <Link href="/blog"><a className="hover:text-gray-700">Blog</a></Link>
-              <Link href="/about"><a className="hover:text-gray-700">Qui sommes-nous ?</a></Link>
             </div>
             <div className="flex flex-wrap justify-end">
                 <div className="flex flex-wrap items-center justify-center  p-2 space-x-4 text-gray-900">
@@ -45,7 +44,6 @@ const Navigation = () => {
               <Link href="/shop"><a className="hover:text-gray-700">Boutique</a></Link>
               <Link href="/locations"><a className="hover:text-gray-700">Points de vente</a></Link>
               <Link href="/blog"><a className="hover:text-gray-700">Blog</a></Link>
-              <Link href="/about"><a className="hover:text-gray-700">Qui sommes-nous ?</a></Link>
             </div>
             <div className="flex flex-wrap justify-end">
                 <div className="flex flex-wrap items-center justify-center  p-2 space-x-4 text-gray-900">
