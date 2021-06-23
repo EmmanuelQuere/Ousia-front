@@ -1,4 +1,3 @@
-import { RichText } from 'prismic-reactjs';
 import styles from './../../styles/Blog.module.scss';
 
 const BlogEmbedComponent = (props) => {
