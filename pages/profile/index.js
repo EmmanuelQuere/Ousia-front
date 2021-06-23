@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 const Profile = () => {
   const [currentUser, setCurrentUser] = React.useState({});
   const [userOrders, setUserOrders] = React.useState([]);
-  const [totalOrder, setTotalOrder] = React.useState(0);
+  
 
   const userToken = useSelector(state => state.token);
 
