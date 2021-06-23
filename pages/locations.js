@@ -50,13 +50,14 @@ const Locations = ({ stores }) => {
   };
   
   const markers = stores.map((marker, index) => {
+    const image = marker.category === "retail" ? <img src="icons/logo_blue.png" style={{ width:"40px"}}></img> : <img src="icons/logo_yellow.png" style={{ width:"40px"}}></img>
     return (
       <Marker
         key={`marker_${index}`}
         longitude={Number(marker.lng)}
         latitude={Number(marker.lat)}>
         <div className="marker" onClick={() => {openPopup(index), setViewport({latitude: Number(marker.lat), longitude: Number(marker.lng),  zoom: 12})}}>
-          <img src="logo.png" style={{ width:"40px"}}></img>
+          {image}
         </div>
       </Marker>
       )
@@ -66,7 +67,14 @@ const Locations = ({ stores }) => {
       <div className={styles.container}>
       <h1 className={styles.title}>Où nous trouver</h1>
       <div className={styles.divider}></div>
-      <p className="mt-5 mb-10">Retrouvez les produits Ousia dans une boutique proche de chez vous ! 🍹</p>
+      <p className="my-5">Retrouvez les produits Ousia dans une boutique proche de chez vous ! 🍹</p>
+      <div className="flex mb-10 items-center">
+        <img src="icons/logo_blue.png" style={{ width: "40px" }} className="mx-3"></img>
+        <span className="text-sm mr-12">Où acheter nos produits</span>
+        <img src="icons/logo_yellow.png" style={{ width: "40px" }} className="mx-3"></img>
+        <span className="text-sm">Où déguster nos produits</span>
+      </div>
+
         <ReactMapGL
           {...viewport}
           width="80%"
