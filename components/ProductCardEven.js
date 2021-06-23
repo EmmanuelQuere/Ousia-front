@@ -4,7 +4,7 @@ import styles from '../styles/Shop.module.scss'
 const ProductCardEven = (props) => {
   return (
     <Link href={`/shop/` + props.item.id} passHref>
-      <article className="flex flex-col shadow-xl mx-auto max-w-sm bg-orange py-20 px-12 transform duration-500 hover:-translate-y-2 cursor-pointer mt-0 md:mt-20 max-h-190 rounded-md">
+      <article className="flex flex-col shadow-xl mx-auto max-w-sm bg-ousiaOrange-light py-20 px-12 transform duration-500 hover:-translate-y-2 cursor-pointer mt-0 md:mt-20 max-h-190 rounded-md">
         <div className="min-h-62">
             <img className="mx-auto" src={props.item.images[0]} alt=""></img>
         </div>
@@ -14,7 +14,7 @@ const ProductCardEven = (props) => {
           {props.item.description}
         </p>
         <p className="font-bold text-gray-800 mb-10">{props.item.price} €</p>
-        <button className={styles.confirmButton}>En voir plus</button>
+        <button className={styles.confirmButtonCold}>En voir plus</button>
       </article>
     </Link>
   )
