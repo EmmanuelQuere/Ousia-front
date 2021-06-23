@@ -40,7 +40,7 @@ const Profile = () => {
   )
 
   return (
-    <div className="container mx-auto p-20">
+    <div className="container mx-auto sm:p-20">
       <div>
         <h2 className={styles.title}>Mon profil</h2>
         <hr className={styles.divider} />
@@ -69,12 +69,12 @@ const Profile = () => {
               <ul>
                 {userOrders.map((order, index) => (
                   <>
-                    <div className="container mb-4 mt-4 w-8/12 ">
-                      <div className="flex mt-2 mb-2 ml-2">
-                        <li className="font-bold text-black-600 text-xs uppercase  w-1/5" key={`order_${order.id}`}> Commande n°{order.id}</li>
-                        <li className="font-bold text-black-600 text-xs uppercase w-1/5"> Date : {order.date} </li>
-                        <li className="font-bold text-black-600 text-xs uppercase w-1/5">Prix total: {order.total} €</li>
-                        <li className="font-bold text-black-600 text-xs uppercase w-1/5">Statut: {order.status}</li>
+                    <div className="container mb-16 mt-16">
+                      <div className="sm:flex mt-2 mb-2 ml-2 space-y-4 sm:space-y-0 ">
+                        <li className="font-bold text-black-600 text-xs uppercase  sm:w-1/5" key={`order_${order.id}`}> Commande n°{order.id}</li>
+                        <li className="font-bold text-black-600 text-xs uppercase sm:w-1/5"> Date : {order.date} </li>
+                        <li className="font-bold text-black-600 text-xs uppercase sm:w-1/5">Prix total: {order.total} €</li>
+                        <li className="font-bold text-black-600 text-xs uppercase lg:w-1/5">Statut: {order.status}</li>
                       </div>
                       <ul>
                         <div className="flex mt-4 mb-2 ml-2">
