@@ -111,6 +111,7 @@ const Item = ({ item }) => {
                                         </svg>
                                         </span>
                                     </div>
+                                    <span className="pl-3">Lot de 6 bouteilles</span>
                                 </div>
                             </div>
                             <div className="flex">

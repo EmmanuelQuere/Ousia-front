@@ -3,11 +3,28 @@
 }
 
 .title {
-  padding:2rem;
-  line-height: 1.15;
-  font-size: 2.5rem;
   text-align: center;
-  text-transform: uppercase;
+  font-family:'Bison', sans-serif;
+  font-size: 3rem;
+  line-height: 1;
+  margin-top:2.5rem;
+  margin-bottom:1rem;
+}
+
+.divider{
+  width: 12rem;
+  height: 0.25rem;
+  margin-left: auto;
+  margin-right:auto;
+  margin-bottom: 1rem;  
+  @apply border-b-4;
+  @apply border-ousiaBlue;
+}
+
+@media (min-width: 600px) {
+  .divider {
+    width: 33.333333%;
+  }
 }
 
 .subtitle {
@@ -16,8 +33,8 @@
   font-weight: bold;
 }
 
-.confirmButton {
-  @apply bg-indigo-700;
+.confirmButtonCold {
+  @apply bg-ousiaBlue;
   @apply px-5;
   @apply py-3;
   @apply mx-auto;
@@ -30,12 +47,34 @@
   @apply rounded-full
 }
 
-.confirmButton:hover{
+.confirmButtonCold:hover{
   @apply shadow-lg;
-  @apply bg-indigo-900;
+  @apply bg-blue-900;
 }
 
-.divider{
-  margin-bottom:3rem;
-  border:1px solid black
+.confirmButtonWarm {
+  @apply bg-ousiaYellow;
+  @apply px-5;
+  @apply py-3;
+  @apply mx-auto;
+  @apply text-sm;
+  @apply shadow-sm;
+  @apply font-medium;
+  @apply tracking-wider;
+  @apply border;
+  @apply text-black;
+  @apply rounded-full
+}
+
+.confirmButtonWarm:hover{
+  @apply shadow-lg;
+  @apply bg-red-900;
+}
+
+.container {
+  padding: 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @apply text-center;
 }

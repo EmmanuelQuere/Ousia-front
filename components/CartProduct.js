@@ -19,7 +19,7 @@ const CartProduct = (props) => {
       }
     });
     
-    if(!userToken){
+    if(!userToken && (localStorage.getItem('visitor_cart') !== null)){
       localStorage.setItem('visitor_cart', JSON.stringify(newCartState))
     }
     

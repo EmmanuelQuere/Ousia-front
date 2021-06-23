@@ -20,4 +20,12 @@ a {
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: "Bison";
+  src: url("../public/fonts/Bison-DemiBold.ttf");
+  font-style: medium;
+  font-weight: 500;
+  font-display: swap;
+}
+
 @tailwind components;

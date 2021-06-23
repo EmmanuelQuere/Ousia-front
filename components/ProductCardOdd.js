@@ -4,7 +4,7 @@ import styles from '../styles/Shop.module.scss'
 const ProductCardOdd = (props) => {
   return (
     <Link href={`/shop/` + props.item.id} passHref>
-      <article className="flex flex-col shadow-xl mx-auto max-w-sm bg-blue-100 py-20 px-12 transform duration-500 hover:-translate-y-2 cursor-pointer max-h-190 rounded-md">
+      <article className="flex flex-col shadow-xl mx-auto max-w-sm bg-ousiaBlue-light py-20 px-12 transform duration-500 hover:-translate-y-2 cursor-pointer max-h-190 rounded-md">
         <div className="min-h-62">
             <img className="mx-auto" src={props.item.images[0]} alt=""></img>
         </div>
@@ -13,8 +13,10 @@ const ProductCardOdd = (props) => {
         <p className="text-sm leading-relaxed mb-5 text-gray-700">
           {props.item.description}
         </p>
-        <p className="font-bold text-gray-800 mb-10">{props.item.price} €</p>
-        <button className={styles.confirmButton}>En voir plus</button>
+        <p className="text-xl font-bold text-gray-900 mb-10">{props.item.price} €
+        <span className="text-xs leading-relaxed mb-5 text-gray-700 font-normal align-middle pl-2">les 6 bouteilles.</span>
+        </p>
+        <button className={styles.confirmButtonWarm}>En voir plus</button>
       </article>
     </Link>
   )

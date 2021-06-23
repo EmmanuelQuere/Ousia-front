@@ -53,7 +53,7 @@ const Signup = () => {
 
   return (
     <div className="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
-      <div className="bg-white px-6 py-8 rounded shadow-md text-black w-full">
+      <div className="bg-white my-20 px-6 py-8 rounded shadow-md text-black w-full">
         <h1 className="mb-8 text-3xl text-center">S'inscrire</h1>
         <form onSubmit={submitInfo}>
         <label htmlFor="email" className="hidden">

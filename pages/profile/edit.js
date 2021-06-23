@@ -75,7 +75,7 @@ const Edit = () => {
             </label>
             <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="first_name" type="text" defaultValue={currentUser.first_name}></input>
           </div>
-            <button className={styles.confirmButton} type="submit">
+            <button className={styles.confirmButtonCold} type="submit">
               Valider
             </button>
           </form>

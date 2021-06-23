@@ -1,10 +1,8 @@
 import Prismic from '@prismicio/client';
 import Link from 'next/link';
-import ArticlePreview from './../../components/blog/ArticlePreview'
-
-const apiEndpoint = 'https://testprismicwithnext407.cdn.prismic.io/api/v2';
-const options = {};
-const Client = () => (Prismic.client(apiEndpoint, options));
+import { Client, options, apiEndpoint } from './../../prismic.config';
+import styles from './../../styles/Blog.module.scss';
+import ArticlePreview from './../../components/blog/ArticlePreview';
 
 export async function getStaticProps() {
   const document = await Client().query(Prismic.Predicates.at('document.type', 'post'));
@@ -17,12 +15,12 @@ export async function getStaticProps() {
 };
 
 const Blog = ({ res }) => {
-  console.log(res);
   return (
-    <div>
-      <h1 className="text-5xl text-center my-3">BLOG</h1>
-      <div className="grid grid-cols-2">
-        {res.map(article =>
+    <div className={`${styles.container} h-full `}>
+      <h1 className={styles.title}>BLOG</h1>
+      <div className={styles.divider}></div>
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4 mt-10">
+        {res.map((article, index) =>
           <ArticlePreview article={article} key={article.id}/>
         )}
       </div>
