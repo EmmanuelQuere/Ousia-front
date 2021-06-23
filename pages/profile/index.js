@@ -69,7 +69,7 @@ const Profile = () => {
               <ul>
                 {userOrders.map((order, index) => (
                   <>
-                    <div className="container border-solid border-2 mb-4 mt-4 w-8/12 ">
+                    <div className="container mb-4 mt-4 w-8/12 ">
                       <div className="flex mt-2 mb-2 ml-2">
                         <li className="font-bold text-black-600 text-xs uppercase  w-1/5" key={`order_${order.id}`}> Commande n°{order.id}</li>
                         <li className="font-bold text-black-600 text-xs uppercase w-1/5"> Date : {order.date} </li>
