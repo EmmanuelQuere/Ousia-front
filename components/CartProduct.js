@@ -57,12 +57,12 @@ const CartProduct = (props) => {
   
 
   return (
-    <div className="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
-      <div className="flex w-2/5">
+    <div className="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5  space-x-6 lg:space-x-8">
+      <div className="sm:flex w-2/5">
         <div className="w-20">
-          {(props.images)? <img className="h-24" src={props.images[0]} alt="image"></img> : ""}  
+          {(props.images)? <img className="h-16 sm:h-24 sm:w-full w-2/3" src={props.images[0]} alt="image"></img> : ""}  
         </div>
-        <div className="flex flex-col justify-around ml-4 flex-grow">
+        <div className="flex flex-col justify-around sm:ml-4 flex-grow">
           <span className="font-bold text-sm">{props.product.name}</span>
           <span onClick={() => handleDelete(props.item_id)} className="cursor-pointer font-semibold hover:text-red-500 text-gray-500 text-xs">Supprimer</span>
         </div>
