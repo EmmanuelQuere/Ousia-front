@@ -2,7 +2,6 @@ import Link from 'next/link';
 import Image from 'next/image'
 
 const ArticlePreview = (props) => {
-  console.log(props);
   return (
 
     <div className="mx-2 my-3 shadow-md rounded-b-lg h-full">

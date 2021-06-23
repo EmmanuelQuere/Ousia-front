@@ -1,19 +1,16 @@
 import React from 'react';
 import Link from 'next/link';
 import Prismic  from '@prismicio/client';
+import { Client, options, apiEndpoint } from './../../../prismic.config';
 import { RichText } from 'prismic-reactjs';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import styles from './../../../styles/Blog.module.scss';
 import BlogBreadcrumbs from './../../../components/blog/BlogBreadcrumbs';
-import BlogTextComponent from './../../../components/blog/BlogTextComponent'
-import BlogImageComponent from './../../../components/blog/BlogImageComponent'
-import BlogQuoteComponent from './../../../components/blog/BlogQuoteComponent'
-import BlogEmbedComponent from './../../../components/blog/BlogEmbedComponent'
-
-const apiEndpoint = 'https://testprismicwithnext407.cdn.prismic.io/api/v2';
-const options = {};
-const Client = () => (Prismic.client(apiEndpoint, options));
+import BlogTextComponent from './../../../components/blog/BlogTextComponent';
+import BlogImageComponent from './../../../components/blog/BlogImageComponent';
+import BlogQuoteComponent from './../../../components/blog/BlogQuoteComponent';
+import BlogEmbedComponent from './../../../components/blog/BlogEmbedComponent';
 
 export async function getStaticPaths() {
   const document = await Client().query(Prismic.Predicates.at('document.type', 'post'));
@@ -41,7 +38,6 @@ export async function getStaticProps(context) {
 };
 
 const Article = ({ res }) => {
-  console.log(res);
   const determineElement = (type) => {
     if (!components[type]) {
       console.warn(`${type} : la gestion de ce type d'élément n'est pas prévue.`);

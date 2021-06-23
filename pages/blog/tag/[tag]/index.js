@@ -2,10 +2,7 @@ import Link from 'next/link';
 import Prismic  from '@prismicio/client';
 import styles from './../../../../styles/Blog.module.scss';
 import ArticlePreview from './../../../../components/blog/ArticlePreview';
-
-const apiEndpoint = 'https://testprismicwithnext407.cdn.prismic.io/api/v2';
-const options = {};
-const Client = () => (Prismic.client(apiEndpoint, options));
+import { Client, options, apiEndpoint } from './../../../../prismic.config';
 
 export async function getStaticPaths() {
   const document = await Client().query(Prismic.Predicates.at('document.type', 'post'));
@@ -29,9 +26,8 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
   const tag = context.params.tag
-  const data = await Client().query(Prismic.Predicates.at('document.tags', [tag]));
-  const res = data.results
-  console.log(res);
+  const document = await Client().query(Prismic.Predicates.at('document.tags', [tag]));
+  const res = document.results
   return {
     props: {
       res
@@ -40,7 +36,6 @@ export async function getStaticProps(context) {
 };
 
 const Blog = ({ res }) => {
-  console.log(res);
   return (
     <div className={`${styles.container} h-full `}>
       <h1 className="text-5xl text-center my-3">BLOG</h1>
