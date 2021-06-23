@@ -32,8 +32,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
   const uid = context.params.uid
-  const document = await Client().getByUID('post', `${uid}`);
-  const res = document
+  const res = await Client().getByUID('post', `${uid}`);
   return {
     props: {
       res
@@ -42,6 +41,7 @@ export async function getStaticProps(context) {
 };
 
 const Article = ({ res }) => {
+  console.log(res);
   const determineElement = (type) => {
     if (!components[type]) {
       console.warn(`${type} : la gestion de ce type d'élément n'est pas prévue.`);
