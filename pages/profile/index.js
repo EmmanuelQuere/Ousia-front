@@ -56,7 +56,7 @@ const Profile = () => {
         <div className="mb-6 text-gray-700">
           Mon prénom : {currentUser.first_name}
         </div>
-        <Link href="/profile/edit"><a className={styles.confirmButton}>Modifier mes informations</a></Link>
+        <Link href="/profile/edit"><a className={styles.confirmButtonCold}>Modifier mes informations</a></Link>
       </section>
       <section className="text-center">
         <h3 className={styles.subtitle}>Mes commandes</h3>
