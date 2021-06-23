@@ -1,11 +1,32 @@
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import EmailModal from './../components/EmailModal'
 import styles from '../styles/Home.module.scss'
 
 export default function Home() {
-  const historyRef = useRef(null)
-  const executeScroll = () => historyRef.current.scrollIntoView()
+  const [isModaleOpen, setModaleStatus] = useState(false);
+  const historyRef = useRef(null);
+  const executeScroll = () => historyRef.current.scrollIntoView();
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const handleScroll = () => {
+    const position = window.pageYOffset;
+    setScrollPosition(position);
+    setModaleStatus(true);
+  };
+
+  useEffect(() => {
+      window.addEventListener('scroll', handleScroll, { passive: true });
+
+      return () => {
+          window.removeEventListener('scroll', handleScroll);
+      };
+  }, []);
+
+  const closeModalHandler = () => {
+    setModaleStatus(false)
+  };
+
   return (
     <>
       <div id={styles.jumbotron_banner} className="relative hero-image bg-right-bottom bg-cover flex" >
@@ -110,10 +131,15 @@ export default function Home() {
                 height={500}
                 className="rounded"
               />
-            </div>              
+            </div>
           </div>
         </div>
         </div>
+
+        {isModaleOpen ? <div onClick={closeModalHandler} className={styles.modalDrop}></div> : null}
+        <button onClick={() => setModaleStatus(true)} className="border">Open modal</button>
+        <EmailModal isModaleOpen={isModaleOpen} closeModalHandler={closeModalHandler} />
+
       </section>
     </>
   )
