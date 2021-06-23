@@ -86,7 +86,7 @@ const Profile = () => {
                           <>
                             <div className=" mt-2 mb-2 ml-2 flex ">
                               <li className="font-semibold text-gray-600 text-xs w-1/5" >{orderItem.item.name}</li>
-                              <li className="font-semibold text-gray-600 text-xs w-1/5" >{orderItem.quantity} articles</li>
+                              <li className="font-semibold text-gray-600 text-xs w-1/5" >{orderItem.quantity} article(s)</li>
                               <li className="font-semibold text-gray-600 text-xs w-1/5" >{orderItem.item.price} €</li>
                             </div>
                           </>

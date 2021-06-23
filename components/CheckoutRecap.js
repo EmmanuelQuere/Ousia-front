@@ -15,19 +15,19 @@ const CheckoutRecap = ({ handleClick, cartDetails }) => {
               <thead>
                 <tr>
                   <th
-                      className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                      className="px-2 sm:px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                       Produit
                   </th>
                   <th
-                      className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                      className="px-2 sm:px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                       Quantité
                   </th>
                   <th
-                      className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                      className="px-2 sm:px-5  py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                       Prix unitaire
                   </th>
                   <th
-                      className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                      className="px-2 sm:px-5  py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                       Prix total
                   </th>
                 </tr>
@@ -47,7 +47,7 @@ const CheckoutRecap = ({ handleClick, cartDetails }) => {
           </div>
           </div>
         
-        <button className="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase p-10 w-1/2" type="button" id="checkout-button" role="link" onClick={handleClick}>
+        <button className="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase p-10 w-1/8 sm:w-1/2" type="button" id="checkout-button" role="link" onClick={handleClick}>
           Payer ma commande
         </button>
       </div>
