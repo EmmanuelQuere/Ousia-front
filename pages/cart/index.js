@@ -164,7 +164,7 @@ const Cart = () => {
             {(!currentUserCart || currentUserCart.length === 0) || <h2 className="font-semibold text-2xl">{totalQuantity(currentUserCart)} {totalQuantity(currentUserCart) > 1 ? `articles` : `article`}</h2>}
           </div>
 
-          <div className="flex mt-10 mb-5 space-x-6 lg:space-x-8">
+          <div className="flex mt-10 mb-5 space-x-8">
             <h3 className="font-semibold text-gray-600 text-xs uppercase w-1/5 sm:w-2/5">Produit</h3>
             <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 ">Quantité</h3>
             <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 pl-4">Prix</h3>
@@ -179,7 +179,7 @@ const Cart = () => {
           </Link>
         </div>
 
-        {(!currentUserCart || currentUserCart.length === 0) || <div id="summary" className="w-1/4 px-8 py-10">
+        {(!currentUserCart || currentUserCart.length === 0) || <div id="summary" className="lg:w-1/4 px-8 py-10">
           <h1 className="font-semibold text-2xl border-b pb-8">Récapitulatif de la commande</h1>
           <div className="flex justify-between mt-10 mb-5">
             <span className="font-semibold text-sm uppercase">{totalQuantity(currentUserCart)} {totalQuantity(currentUserCart) > 1 ? `articles` : `article`}</span>
