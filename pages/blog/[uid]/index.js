@@ -61,14 +61,16 @@ const Article = ({ res }) => {
   return (
     <div>
       <BlogBreadcrumbs article={res.data.title}/>
+
       <div className={styles.container}>
         <div className={styles.heading}>
           <RichText render={res.data.title} />
         </div>
-        <div className="w-48 lg:w-1/3 border-b-4 border-red-700 h-1 mx-auto my-8"></div>
+        <div className={styles.divider}></div>
         {component.map((data, index) => data.component ? React.createElement(data.component, data.props) : <p></p>)}
       </div>
-      <div className="w-48 lg:w-1/3 border-b-4 border-red-700 h-1 mx-auto my-4"></div>
+
+      <div className={styles.divider}></div>
       <Link href="/blog">
         <a className="m-4 hover:underline px-12">
           <FontAwesomeIcon icon={faArrowLeft} className="text-sm mr-2"/>Revenir à la liste des articles

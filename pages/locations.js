@@ -64,8 +64,8 @@ const Locations = ({ stores }) => {
 
   return (
       <div className={styles.container}>
-      <h1 className="text-center text-5xl mt-10 mb-2">Où nous trouver</h1>
-      <div className="w-48 lg:w-1/3 border-b-4 border-red-700 h-1 mx-auto mb-4"></div>
+      <h1 className={styles.title}>Où nous trouver</h1>
+      <div className={styles.divider}></div>
       <p className="mt-5 mb-10">Retrouvez les produits Ousia dans une boutique proche de chez vous ! 🍹</p>
         <ReactMapGL
           {...viewport}

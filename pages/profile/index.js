@@ -6,7 +6,11 @@ import { useSelector } from 'react-redux';
 const Profile = () => {
   const [currentUser, setCurrentUser] = React.useState({});
   const [userOrders, setUserOrders] = React.useState([]);
+  
+
   const userToken = useSelector(state => state.token);
+
+
 
   React.useEffect(
     () => {
@@ -52,17 +56,53 @@ const Profile = () => {
         <div className="mb-6 text-gray-700">
           Mon prénom : {currentUser.first_name}
         </div>
-        <Link href="/profile/edit"><a className={styles.confirmButton}>Modifier mes informations</a></Link>
+        <Link href="/profile/edit"><a className={styles.confirmButtonCold}>Modifier mes informations</a></Link>
       </section>
       <section className="text-center">
         <h3 className={styles.subtitle}>Mes commandes</h3>
-        {userOrders.length > 0  ?
-          <div className="grid grid-cols-1 gap-4">
-            {userOrders.map((order, index) => (
-              <p className="mt-2" key={`order_${order.id}`}>Commande n°{order.id} : {order.status}</p>
-            ))}
-          </div>
-          : 'Aucune commande'}
+
+        <div >
+          {userOrders.length > 0 ?
+
+
+            <div className=" mt-10 mb-5 table-auto text-left">
+              <ul>
+                {userOrders.map((order, index) => (
+                  <>
+                    <div className="container mb-4 mt-4 w-8/12 ">
+                      <div className="flex mt-2 mb-2 ml-2">
+                        <li className="font-bold text-black-600 text-xs uppercase  w-1/5" key={`order_${order.id}`}> Commande n°{order.id}</li>
+                        <li className="font-bold text-black-600 text-xs uppercase w-1/5"> Date : {order.date} </li>
+                        <li className="font-bold text-black-600 text-xs uppercase w-1/5">Prix total: {order.total} €</li>
+                        <li className="font-bold text-black-600 text-xs uppercase w-1/5">Statut: {order.status}</li>
+                      </div>
+                      <ul>
+                        <div className="flex mt-4 mb-2 ml-2">
+                          <li className="font-semibold text-black-600 text-xs w-1/5">Nom des articles</li>
+                          <li className="font-semibold text-black-600 text-xs w-1/5">Quantité</li>
+                          <li className="font-semibold text-black-600 text-xs  w-1/5">Prix unitaire</li>
+                        </div>
+                        {order.order_items.map((orderItem, index) => (
+                          <>
+                            <div className=" mt-2 mb-2 ml-2 flex ">
+                              <li className="font-semibold text-gray-600 text-xs w-1/5" >{orderItem.item.name}</li>
+                              <li className="font-semibold text-gray-600 text-xs w-1/5" >{orderItem.quantity} articles</li>
+                              <li className="font-semibold text-gray-600 text-xs w-1/5" >{orderItem.item.price} €</li>
+                            </div>
+                          </>
+                        ))}
+                      </ul>
+                    </div>
+                  </>
+                ))}
+              </ul>
+            </div>
+            : 'Aucune commande'}
+
+        </div>
+
+
+
 
       </section>
     </div>

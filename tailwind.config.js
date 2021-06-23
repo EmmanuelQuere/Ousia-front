@@ -6,10 +6,22 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        orange: '#fed8b1',
-      backgroundImage: (theme) => ({
-        'bottles-img' : "url('/public/ousiabottles.png')"
-      })
+        ousiaBlue: {
+          light: '#BFEBE9',
+          DEFAULT: '#305AB0'
+        },
+        ousiaOrange: {
+          light: '#FFA17A',
+          DEFAULT: '#FF7424'
+        },
+        ousiaGreen: {
+          light: '#B7E5D1',
+          DEFAULT: '#34B658'
+        },
+        ousiaYellow: {
+          light: '#FEF094',
+          DEFAULT: '#FFCB49'
+        },
       }
     },
   },

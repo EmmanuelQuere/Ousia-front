@@ -5,12 +5,12 @@ const About = () => {
 
   return (
     <div className={styles.container}>
-      <h1 className="text-center text-5xl mt-4">A propos de nous</h1>
+      <h1 className={styles.title}>A propos de nous</h1>
       <div className="my-3">
-        <h2 className="w-full my-2 text-4xl font-mono-black leading-tight text-center text-gray-800 mb-2">
+        <h2 className={styles.subtitle}>
           Les fondateurs
         </h2>
-        <div className="w-48 lg:w-1/3 border-b-4 border-red-700 h-1 mx-auto mb-4"></div>
+        <div className={styles.divider}></div>
         <div className="flex flex-row flex-wrap items-center">
           <div className="flex-auto sm:flex-1 px-2 filter drop-shadow-lg">
             <Image
@@ -34,10 +34,10 @@ const About = () => {
       </div>
       </div>
       <div className="my-3">
-      <h2 className="w-full my-2 text-4xl font-mono-black leading-tight text-center text-gray-800 mb-2">
+      <h2 className={styles.subtitle}>
         La marque
       </h2>
-      <div className="w-48 lg:w-1/3 border-b-4 border-red-700 h-1 mx-auto mb-4"></div>
+      <div className={styles.divider}></div>
       <div className="flex flex-row flex-wrap items-center">
         <div className="flex-auto sm:flex-1 px-2">
           <div className="mx-auto">
