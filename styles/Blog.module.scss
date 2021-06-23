@@ -1,5 +1,5 @@
 .container {
-  padding: 0 4rem;
+  @apply md:px-40 sm:px-1;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -26,7 +26,7 @@
 
 /* MAIN TITLE */
 .heading h1 {
-  @apply text-5xl text-center my-3 px-2 tracking-wider ;
+  @apply text-5xl text-center mt-8 mb-3 px-2 tracking-wider ;
   font-family:'Bison', sans-serif;
 }
 

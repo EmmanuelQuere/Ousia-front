@@ -1,17 +1,16 @@
 import React from 'react';
 import Link from 'next/link';
 import Prismic  from '@prismicio/client';
+import { Client, options, apiEndpoint } from './../../../prismic.config';
 import { RichText } from 'prismic-reactjs';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import styles from './../../../styles/Blog.module.scss';
 import BlogBreadcrumbs from './../../../components/blog/BlogBreadcrumbs';
-import BlogTextComponent from './../../../components/blog/BlogTextComponent'
-import BlogImageComponent from './../../../components/blog/BlogImageComponent'
-import BlogQuoteComponent from './../../../components/blog/BlogQuoteComponent'
-import BlogEmbedComponent from './../../../components/blog/BlogEmbedComponent'
-
-const apiEndpoint = 'https://testprismicwithnext407.cdn.prismic.io/api/v2';
-const options = {};
-const Client = () => (Prismic.client(apiEndpoint, options));
+import BlogTextComponent from './../../../components/blog/BlogTextComponent';
+import BlogImageComponent from './../../../components/blog/BlogImageComponent';
+import BlogQuoteComponent from './../../../components/blog/BlogQuoteComponent';
+import BlogEmbedComponent from './../../../components/blog/BlogEmbedComponent';
 
 export async function getStaticPaths() {
   const document = await Client().query(Prismic.Predicates.at('document.type', 'post'));
@@ -30,8 +29,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
   const uid = context.params.uid
-  const document = await Client().getByUID('post', `${uid}`);
-  const res = document
+  const res = await Client().getByUID('post', `${uid}`);
   return {
     props: {
       res
@@ -48,7 +46,6 @@ const Article = ({ res }) => {
     }
   };
 
-  console.log(res);
   const components = {
     text: BlogTextComponent,
     image_with_caption: BlogImageComponent,
@@ -56,24 +53,29 @@ const Article = ({ res }) => {
     embed: BlogEmbedComponent
   };
 
-  let component = res.data.body.map(element => {
+  let component = res.data.body.map( (element, index)=> {
     let BlogComponent = determineElement(element.slice_type)
-    return {component: BlogComponent, props: element}
+    return {component: BlogComponent, props: {...element, key: `blog-component-${index}`} }
   })
 
-  console.log(component);
   return (
     <div>
       <BlogBreadcrumbs article={res.data.title}/>
-      <div className={styles.heading}>
-        <RichText render={res.data.title} />
-      </div>
-      <div className={styles.divider}></div>
+
       <div className={styles.container}>
+        <div className={styles.heading}>
+          <RichText render={res.data.title} />
+        </div>
+        <div className={styles.divider}></div>
         {component.map((data, index) => data.component ? React.createElement(data.component, data.props) : <p></p>)}
       </div>
+
       <div className={styles.divider}></div>
-      <Link href="/blog"><a className="m-4 hover:underline">Revenir à la liste des articles</a></Link>
+      <Link href="/blog">
+        <a className="m-4 hover:underline px-12">
+          <FontAwesomeIcon icon={faArrowLeft} className="text-sm mr-2"/>Revenir à la liste des articles
+        </a>
+      </Link>
     </div>
   )
 }
