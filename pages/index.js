@@ -12,9 +12,7 @@ export default function Home() {
     shouldShowModalRef.current = data;
     _setShouldShowModal(data);
   }
-  const historyRef = useRef(null);
-
-  const executeScroll = () => historyRef.current.scrollIntoView();
+ 
   const [scrollPosition, setScrollPosition] = useState(0);
   const handleScroll = () => {
     const currentPosition = window.pageYOffset;
@@ -37,6 +35,10 @@ export default function Home() {
   const closeModalHandler = () => {
     setModaleStatus(false);
   };
+
+
+  const historyRef = useRef(null)
+  const executeScroll = () => historyRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' })
 
   return (
     <>
