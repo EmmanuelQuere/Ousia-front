@@ -15,9 +15,9 @@ const EmailModal = (props) => {
   return (
     <div className={`${styles.wrapper}`} style={{
       display: props.isModaleOpen ? 'flex' : 'none',
-      transform: props.isModaleOpen ? 'translateY(0vh)' : 'translateY(-100vh)'}}>
+      }}>
       <div className={`${styles.imageWrapper} w-1/3`}>
-        
+
       </div>
 
       <div className={`${styles.content} md:w-2/3`}>
