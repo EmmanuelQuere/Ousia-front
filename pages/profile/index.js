@@ -6,11 +6,7 @@ import { useSelector } from 'react-redux';
 const Profile = () => {
   const [currentUser, setCurrentUser] = React.useState({});
   const [userOrders, setUserOrders] = React.useState([]);
-  
-
   const userToken = useSelector(state => state.token);
-
-
 
   React.useEffect(
     () => {
@@ -65,7 +61,7 @@ const Profile = () => {
           {userOrders.length > 0 ?
 
 
-            <div className=" mt-10 mb-5 table-auto text-left">
+            <div className="mt-10 mb-5 table-auto text-left">
               <ul>
                 {userOrders.map((order, index) => (
                   <>
@@ -78,16 +74,16 @@ const Profile = () => {
                       </div>
                       <ul>
                         <div className="flex mt-4 mb-2 ml-2">
-                          <li className="font-semibold text-black-600 text-xs w-1/5">Nom des articles</li>
-                          <li className="font-semibold text-black-600 text-xs w-1/5">Quantité</li>
-                          <li className="font-semibold text-black-600 text-xs  w-1/5">Prix unitaire</li>
+                          <li className="text-black-600 text-xs w-1/5">Nom des articles</li>
+                          <li className="text-black-600 text-xs w-1/5">Quantité</li>
+                          <li className="text-black-600 text-xs  w-1/5">Prix unitaire</li>
                         </div>
                         {order.order_items.map((orderItem, index) => (
                           <>
                             <div className=" mt-2 mb-2 ml-2 flex ">
-                              <li className="font-semibold text-gray-600 text-xs w-1/5" >{orderItem.item.name}</li>
-                              <li className="font-semibold text-gray-600 text-xs w-1/5" >{orderItem.quantity} article(s)</li>
-                              <li className="font-semibold text-gray-600 text-xs w-1/5" >{orderItem.item.price} €</li>
+                              <li className="text-gray-600 text-xs w-1/5" >{orderItem.item.name}</li>
+                              <li className="text-gray-600 text-xs w-1/5" >{orderItem.quantity} article(s)</li>
+                              <li className="text-gray-600 text-xs w-1/5" >{orderItem.item.price} €</li>
                             </div>
                           </>
                         ))}
