@@ -5,7 +5,7 @@ import styles from '../styles/Home.module.scss'
 
 export default function Home() {
   const historyRef = useRef(null)
-  const executeScroll = () => historyRef.current.scrollIntoView()
+  const executeScroll = () => historyRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' })
   return (
     <>
       <div id={styles.jumbotron_banner} className="relative hero-image bg-right-bottom bg-cover flex" >
