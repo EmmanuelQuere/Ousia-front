@@ -1,34 +1,38 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Ousia -- Client application
 
-## Getting Started
+## About
 
-First, run the development server:
+Ousia reinvents the way cocktails are enjoyed, offering sophisticated non-alcoholic alternatives. Inspired by classics or pure creations, each of the cocktails in the range is designed to be a complex and nuanced alternative to an alcoholic equivalent. Find out more about the brand [here](https://www.facebook.com/ousiadrinks/)
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+### The app
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+This web application includes the following features:
+* A comprehensive landing page provides all users with information on the Ousia brand and founders.
+* A store for Ousia products: guests can add items to their cart, delete and edit their quantities, but orders can only be placed by authenticated users. Users can sign in and sign up on the website. Orders are paid for via Stripe. A connected user has access to a dashboard where they can visualize and edit their profile information, as well as visualize a summary of their past orders.
+* A map of store locations: all users can visualize a map of Ousia sales points, with a distinction between retailers and restaurants/bars offering the products.
+* A blog: all users can access articles published by the Ousia teams detailing their entrepreneurial adventure, updates on the launch of their products, new launches and features...
+* A modal offering users to subscribe to a newsletter when scrolling on the landing page.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+Find the app in production on Heroku [here](https://ousia-front.herokuapp.com/) and the admin interface [here](https://ousia-back.herokuapp.com/)!
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+### Technical specs
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+This Next.js app relies on a Ruby on Rails back-end API server available [here](https://github.com/EmmanuelQuere/Ousia-back). It was built with Next 10.2 and React 17.0.
 
-## Learn More
+We chose Next.js instead of basic React for Search Engine Optimization purposes, which was a strong concern for the Ousia teams. Server-side rendering enabled by Next.js makes the app more efficient in this regard than a single-page application.
 
-To learn more about Next.js, take a look at the following resources:
+It uses Redux and the js-cookie module for global state management. Styles use the Tailwind CSS library, and FontAwesome for icons.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Payments are managed via Stripe. The interactive map is based upon Mapbox. Blog articles are displayed through Prismic and an attached headless CMS.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## How to run locally
 
-## Deploy on Vercel
+After cloning this repository (or downloading and unzipping it), run `npm install` in the CLI to install necessary modules. Environment variables required are a Stripe and Mapbox API keys, which you can add to the `.env.local` file.
+Run the `npm run dev` command to start the server on local port 3005.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Team
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+* [Ariane](https://github.com/arejl)
+* [Caroline](https://github.com/Caro407)
+* [Emmanuel](https://github.com/EmmanuelQuere)
+* [Erwann](https://github.com/erwannlenoach)
