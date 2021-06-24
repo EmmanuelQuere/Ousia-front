@@ -11,6 +11,7 @@ This web application includes the following features:
 * A store for Ousia products: guests can add items to their cart, delete and edit their quantities, but orders can only be placed by authenticated users. Users can sign in and sign up on the website. Orders are paid for via Stripe. A connected user has access to a dashboard where they can visualize and edit their profile information, as well as visualize a summary of their past orders.
 * A map of store locations: all users can visualize a map of Ousia sales points, with a distinction between retailers and restaurants/bars offering the products.
 * A blog: all users can access articles published by the Ousia teams detailing their entrepreneurial adventure, updates on the launch of their products, new launches and features...
+* A modal offering users to subscribe to a newsletter when scrolling on the landing page.
 
 Find the app in production on Heroku [here](https://ousia-front.herokuapp.com/) and the admin interface [here](https://ousia-back.herokuapp.com/)!
 
