@@ -30,8 +30,8 @@ const Footer = () => {
                     <div>
                         <ul className="flex content-center justify-center flex-wrap">
                             <li className=" md:mr-6 cursor-pointer pt-4 lg:py-0 hover:text-ousiaBlue-light"><Link href="/about"><a><FontAwesomeIcon icon={faBullseye} className="fa-lg mx-2 " />Notre mission</a></Link></li>
-                            <li className=" md:mr-6 cursor-pointer pt-4 lg:py-0 hover:text-ousiaBlue-light"href="#"> <FontAwesomeIcon icon={faStore} className="fa-lg mx-2" />Nos points de vente</li>
-                            <li className=" md:mr-6 cursor-pointer pt-4 lg:py-0 hover:text-ousiaBlue-light"href="#"> <FontAwesomeIcon icon={faEnvelope} className="fa-lg mx-2" />Contactez nous</li>
+                            <li className=" md:mr-6 cursor-pointer pt-4 lg:py-0 hover:text-ousiaBlue-light"><Link href="/locations"><a><FontAwesomeIcon icon={faStore} className="fa-lg mx-2" />Nos points de vente</a></Link></li>
+                            <li className=" md:mr-6 cursor-pointer pt-4 lg:py-0 hover:text-ousiaBlue-light"><a href="mailto:ousia@ousia.com"><FontAwesomeIcon icon={faEnvelope} className="fa-lg mx-2" />Contactez-nous</a></li>
                         </ul>
                     </div>
                     <div className="my-6">
