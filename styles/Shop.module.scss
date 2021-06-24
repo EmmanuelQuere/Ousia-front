@@ -42,7 +42,6 @@
   @apply shadow-sm;
   @apply font-medium;
   @apply tracking-wider;
-  @apply border;
   @apply text-white;
   @apply rounded-full
 }
@@ -61,14 +60,13 @@
   @apply shadow-sm;
   @apply font-medium;
   @apply tracking-wider;
-  @apply border;
   @apply text-black;
   @apply rounded-full
 }
 
 .confirmButtonWarm:hover{
   @apply shadow-lg;
-  @apply bg-red-900;
+  @apply bg-yellow-500;
 }
 
 .container {
