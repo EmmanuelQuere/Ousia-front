@@ -47,7 +47,9 @@ const Navigation = () => {
             </div>
             <div className="flex flex-wrap justify-end">
                 <div className="flex flex-wrap items-center justify-center  p-2 space-x-4 text-gray-900">
-                <Link href="/cart" passHref><a className="hover:text-gray-700"><FontAwesomeIcon icon={faShoppingBasket} /></a></Link>
+                <Link href="/cart" passHref>
+                  <a className="hover:text-gray-700"><FontAwesomeIcon icon={faShoppingBasket} />
+                  </a></Link>
                 <Link href="/login"><a className="hover:text-gray-700 text-sm">Se connecter</a></Link>
                 <Link href="/signup"><a className="hover:text-gray-700 text-sm">S'inscrire</a></Link>
               </div>
