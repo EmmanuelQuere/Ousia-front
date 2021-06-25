@@ -11,37 +11,6 @@ const Navigation = () => {
   const isLoggedIn = useSelector(state => state.isLoggedIn)
   const [navbarElements, setNavbarElements] = useState()
 
-  const [cartFilled, setCartFilled] = useState(false);
-
-  useEffect(() => {
-    if (isLoggedIn){
-      let myHeaders = new Headers();
-      myHeaders.append("Authorization", `${userToken}`);
-      
-      let requestOptions = {
-        method: 'GET',
-        headers: myHeaders
-      };
-
-      fetch(`${process.env.url}/mycart`, requestOptions)
-      .then(response => response.json())
-      .then(result => {
-        if(result.lenght === 0){
-          setCartFilled(false)
-        }else{
-          setCartFilled(true)
-        }
-      })
-      .catch(error => console.log('error', error));
-    }
-
-    if(localStorage.getItem('visitor_cart')){
-      setCartFilled(true)
-    }else{
-      setCartFilled(false)
-    }
-  }, [])
-
   useEffect(() => {
     if (isLoggedIn) {
       setNavbarElements(
@@ -80,9 +49,6 @@ const Navigation = () => {
                 <div className="flex flex-wrap items-center justify-center  p-2 space-x-4 text-gray-900">
                 <Link href="/cart" passHref>
                   <a className="hover:text-gray-700"><FontAwesomeIcon icon={faShoppingBasket} />
-                    <span style={{visibility: cartFilled? "visible" : "hidden"}}>
-                      <span className="absolute inline-flex rounded-full h-2 w-2 bg-ousiaOrange"><span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-ousiaOrange-light opacity-75"></span></span>
-                    </span>
                   </a></Link>
                 <Link href="/login"><a className="hover:text-gray-700 text-sm">Se connecter</a></Link>
                 <Link href="/signup"><a className="hover:text-gray-700 text-sm">S'inscrire</a></Link>
