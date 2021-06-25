@@ -27,8 +27,8 @@ const Login = () => {
     .then(response => {
       if (response.headers.get('Authorization'))
       {
-        Cookies.set('token', response.headers.get('Authorization'), { sameSite: 'lax' });
-        Cookies.set('isLoggedIn', true, { sameSite: 'lax' });
+        Cookies.set('token', response.headers.get('Authorization'), { sameSite: 'lax', expires: 1/72 });
+        Cookies.set('isLoggedIn', true, { sameSite: 'lax', expires: 1/72 });
         dispatch(logIn(Cookies.get('token')));
         alert.show("Vous êtes connecté(e).", { type: types.SUCCESS })
         if(from_visitor){
