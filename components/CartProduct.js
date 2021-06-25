@@ -1,10 +1,24 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 
 const CartProduct = (props) => {
 
   const userToken = useSelector(state => state.token);
   let currentItemQuantity = null
+
+  const [isLoading, setIsLoading] = useState(true);
+  const image = useRef();
+  const onLoad = () => {
+    setIsLoading(false)
+    image.current.className+= " loaded"
+  }
+
+  useEffect(() => {
+    if (image.current.complete) {
+      setIsLoading(false)
+      image.current.className+= " loaded"
+    }
+  }, [])
 
   if(props.currentUserCart.find(element => element.id === props.item_id)){
     currentItemQuantity = props.currentUserCart.find(element => element.id === props.item_id).quantity
@@ -57,10 +71,10 @@ const CartProduct = (props) => {
   
 
   return (
-    <div className="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
+    <div className={"flex items-center hover:bg-gray-100 -mx-8 px-6 py-5 " + (isLoading? 'animate-pulse' : '')}>
       <div className="flex w-2/5">
-        <div className="w-20">
-          {(props.images)? <img className="h-24" src={props.images[0]} alt="image"></img> : ""}  
+        <div className="w-20" style={{visibility: isLoading? "hidden" : "visible"}}>
+          {(props.images)? <img className="h-24 beforeload" src={props.images[0]} ref={image} onLoad={onLoad} alt="image"></img> : ""}  
         </div>
         <div className="flex flex-col justify-around ml-4 flex-grow">
           <span className="font-bold text-sm">{props.product.name}</span>
