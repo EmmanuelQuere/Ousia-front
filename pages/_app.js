@@ -11,8 +11,8 @@ import "@fortawesome/fontawesome-svg-core/styles.css";
 
 const alertOptions = {
   position: positions.TOP_CENTER,
-  timeout: 5000,
-  offset: '30px',
+  timeout: 4000,
+  offset: '10vh',
   transition: transitions.SCALE
 }
 

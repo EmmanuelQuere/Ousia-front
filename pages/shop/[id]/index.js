@@ -114,9 +114,10 @@ const Item = ({ item }) => {
                                     <span className="pl-3">Lot de 6 bouteilles</span>
                                 </div>
                             </div>
-                            <div className="flex">
+                            
+                            <div className="sm:flex text-center space-y-4 sm:space-y-0">
                                 <span className="title-font font-medium text-2xl text-gray-900">{item.price} €</span>
-                                <button className="flex ml-auto text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded" onClick={addToCart}>Ajouter au panier</button>
+                                <button className="flex ml-8 sm:ml-auto text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded" onClick={addToCart}>Ajouter au panier</button>
                             </div>
                         </div>
                     </div>

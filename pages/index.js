@@ -1,11 +1,45 @@
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import EmailModal from './../components/EmailModal'
 import styles from '../styles/Home.module.scss'
 
 export default function Home() {
+  const [isModaleOpen, setModaleStatus] = useState(false);
+  const [shouldShowModal, _setShouldShowModal] = useState(true);
+  const shouldShowModalRef = useRef(shouldShowModal);
+  const setShouldShowModal = data => {
+    shouldShowModalRef.current = data;
+    _setShouldShowModal(data);
+  }
+ 
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const handleScroll = () => {
+    const currentPosition = window.pageYOffset;
+    const pageHeight = window.outerHeight
+    if (currentPosition/pageHeight > 1 && shouldShowModalRef.current ) {
+      setScrollPosition(currentPosition);
+      setModaleStatus(true);
+      setShouldShowModal(false)
+    }
+  };
+
+  useEffect(() => {
+      window.addEventListener('scroll', handleScroll, { passive: true });
+
+      return () => {
+          window.removeEventListener('scroll', handleScroll);
+      };
+  }, []);
+
+  const closeModalHandler = () => {
+    setModaleStatus(false);
+  };
+
+
   const historyRef = useRef(null)
-  const executeScroll = () => historyRef.current.scrollIntoView()
+  const executeScroll = () => historyRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' })
+
   return (
     <>
       <div id={styles.jumbotron_banner} className="relative hero-image bg-right-bottom bg-cover flex" >
@@ -110,10 +144,14 @@ export default function Home() {
                 height={500}
                 className="rounded"
               />
-            </div>              
+            </div>
           </div>
         </div>
         </div>
+
+        {isModaleOpen ? <div onClick={closeModalHandler} className={styles.modalDrop}></div> : null}
+        <EmailModal isModaleOpen={isModaleOpen} closeModalHandler={closeModalHandler} />
+
       </section>
     </>
   )
