@@ -1,12 +1,32 @@
 import Link from 'next/link';
+import { useEffect, useRef, useState } from 'react';
 import styles from '../styles/Shop.module.scss'
 
 const ProductCardOdd = (props) => {
+
+  const [isLoading, setIsLoading] = useState(true);
+  const image = useRef();
+  const onLoad = () => {
+    setIsLoading(false)
+    image.current.className+= " loaded"
+  }
+
+  useEffect(() => {
+    if (image.current.complete) {
+      setIsLoading(false)
+      image.current.className+= " loaded"
+    }
+  }, [])
+
   return (
     <Link href={`/shop/` + props.item.id} passHref>
       <article className="flex flex-col shadow-xl mx-auto max-w-sm bg-ousiaBlue-light py-20 px-12 transform duration-500 hover:-translate-y-2 cursor-pointer max-h-190 rounded-md">
         <div className="min-h-62">
-            <img className="mx-auto" src={props.item.images[0]} alt=""></img>
+        <div style={{visibility: isLoading? "hidden" : "visible"}}>
+          <img className="mx-auto beforeload" src={props.item.images[0]} ref={image} alt="" onLoad={onLoad}>
+          </img>
+          <div className="lds-ellipsis mx-auto opacity-100" style={{display: isLoading? "block" : "none", visibility: "visible"}}><div></div><div></div><div></div><div></div></div>
+        </div>
         </div>
         <h1 className="font-extrabold text-6xl mt-28 mb-10 text-gray-800">{props.index < 10 ? `0${props.index}` : props.index}.</h1>
         <h2 className="font-bold mb-5 text-xl text-gray-800">{props.item.name}</h2>
