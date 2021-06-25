@@ -59,7 +59,7 @@ const Navigation = () => {
       </nav>
       )
     }
-  }, [isLoggedIn, cartFilled])
+  }, [isLoggedIn])
 
   return (<>{navbarElements}</>)
 }
