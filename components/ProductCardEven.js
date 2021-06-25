@@ -20,7 +20,7 @@ const ProductCardEven = (props) => {
 
   return (
     <Link href={`/shop/` + props.item.id} passHref>
-      <article className="flex flex-col shadow-xl mx-auto max-w-sm bg-ousiaYellow-light py-20 px-12 transform duration-500 hover:-translate-y-2 cursor-pointer mt-0 md:mt-20 max-h-190 rounded-md">
+      <article className="flex flex-col shadow-xl mx-auto max-w-sm bg-ousiaYellow-light py-20 px-12 transform duration-500 hover:-translate-y-2 cursor-pointer mt-0 md:mt-20 max-h-190 rounded-md tracking-wider">
         <div className="min-h-62">
         <div style={{visibility: isLoading? "hidden" : "visible"}}>
           <img className="mx-auto beforeload" src={props.item.images[0]} ref={image} alt="" onLoad={onLoad}>
@@ -29,12 +29,12 @@ const ProductCardEven = (props) => {
         </div>
         </div>
         <h1 className="font-extrabold text-6xl mt-28 mb-10 text-gray-800">{props.index < 10 ? `0${props.index}` : props.index}.</h1>
-        <h2 className="font-bold mb-5 text-xl text-gray-800">{props.item.name}</h2>
+        <h2 className="font-bold mb-5 text-4xl text-gray-800">{props.item.name}</h2>
         <p className="text-sm leading-relaxed mb-5 text-gray-700">
           {props.item.description}
         </p>
         <p className="text-xl font-bold text-black mb-10">{props.item.price} €
-        <span className="text-xs leading-relaxed mb-5 text-gray-700 font-normal align-middle pl-2">les 6 bouteilles.</span>
+        <span className="text-xs leading-relaxed mb-5 text-gray-700 font-normal align-middle pl-2 tracking-wider">les 6 bouteilles.</span>
         </p>
         <button className={styles.confirmButtonCold}>En voir plus</button>
       </article>

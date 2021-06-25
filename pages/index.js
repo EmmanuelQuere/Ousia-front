@@ -64,7 +64,7 @@ export default function Home() {
             </h2>
             <div className={styles.divider}></div>
             <div className="flex flex-row flex-wrap items-center py-20">
-              <div className="flex-auto sm:flex-1 px-2">
+              <div className="flex-auto sm:flex-1 px-2 tracking-wider">
                 <p className="text-gray-600 mb-8">
                   L'apéritif, moment convivial et rassembleur par essence est trop souvent lié à la consommation d'alcool. Pourtant, de nombreuses personnes ne peuvent pas ou ne veulent pas boire d'alcool et n'ont pas le choix d'une vraie expérience alternative
                 </p>
@@ -126,7 +126,7 @@ export default function Home() {
             </h2>
             <div className={styles.divider}></div>
             <div className="flex flex-row flex-wrap items-center py-20">
-            <div className="flex-auto sm:flex-1 px-2">
+            <div className="flex-auto sm:flex-1 px-2 tracking-wider">
                 <blockquote className={styles.blockquote}>
                   Tous les trois, on aime bien prendre l'apéro. Mais ce qu'on aime avant tout c'est de le partager
                   avec nos amis et familles autour de boissons sympas et de petites choses à manger.
