@@ -41,7 +41,8 @@ const Navigation = () => {
         <div className="flex flex-wrap items-center justify-around text-gray-900">
           <Link href="/"><a className={styles.logo}>Ousia</a></Link>
             <div className="flex flex-wrap items-center justify-center p-2 space-x-6 text-sm font-semibold">
-              <Link href="/shop"><a className="hover:text-gray-700">Boutique</a></Link>
+              <Link href="/shop"><a className="hover:text-gray-700">E-shop</a></Link>
+              <Link href="/about"><a className="hover:text-gray-700">A propos</a></Link>
               <Link href="/locations"><a className="hover:text-gray-700">Points de vente</a></Link>
               <Link href="/blog"><a className="hover:text-gray-700">Blog</a></Link>
             </div>

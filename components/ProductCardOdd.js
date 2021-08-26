@@ -28,15 +28,11 @@ const ProductCardOdd = (props) => {
           <div className="lds-ellipsis mx-auto opacity-100" style={{display: isLoading? "block" : "none", visibility: "visible"}}><div></div><div></div><div></div><div></div></div>
         </div>
         </div>
-        <h1 className="font-extrabold text-6xl mt-28 mb-10 text-gray-800">{props.index < 10 ? `0${props.index}` : props.index}.</h1>
         <h2 className="font-bold mb-5 text-4xl text-gray-800">{props.item.name}</h2>
-        <p className="text-sm leading-relaxed mb-5 text-gray-700">
-          {props.item.description}
-        </p>
         <p className="text-xl font-bold text-gray-900 mb-10">{props.item.price} €
-        <span className="text-xs leading-relaxed mb-5 text-gray-700 font-normal align-middle pl-2 tracking-wider">les 6 bouteilles.</span>
+        <span className="text-xs leading-relaxed mb-5 text-gray-700 font-normal align-middle pl-2 tracking-wider">les 12 bouteilles de 27,5cL (+ frais de livraison).</span>
         </p>
-        <button className={styles.confirmButtonWarm}>En voir plus</button>
+        <button className={styles.confirmButtonWarm}>Commander</button>
       </article>
     </Link>
   )

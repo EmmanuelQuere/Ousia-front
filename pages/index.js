@@ -39,45 +39,42 @@ export default function Home() {
 
   const historyRef = useRef(null)
   const executeScroll = () => historyRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' })
+  const menuRef = useRef(null)
+  const executeMenuScroll = () => menuRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' }) 
 
   return (
     <>
-      <div id={styles.jumbotron_banner} className="relative hero-image bg-right-bottom bg-cover flex" >
+      <div id={styles.jumbotron_banner} ref={menuRef} className="relative hero-image bg-right-bottom bg-cover flex" >
         <div className="absolute top-0 mt-20 right-0 bottom-0 left-0 bg-gradient-to-b from-transparent to-gray-900"></div>
         <div className="relative container mx-auto mb-6 flex items-end justify-center z-10">
-          <div className="content text-center p-4">
-            <div className={styles.leadTitle}>Ousia, l'essence même de l'apéritif</div>
-            <div className="text-3xl leading-normal mt-0 mb-5 text-gray-200 tracking-wider" style={{fontFamily:"'Bison', sans-serif"}}>Cocktails sophistiqués, sans alcool et prêts à boire</div>
+          <div className="content text-center p-10">
+            <div className={styles.leadTitle}>Ousia, des cocktails naturels avec 0% d’alcool pour 100% de convivialité !</div>
             <div className="flex flex-wrap justify-center">
-              <Link href="/shop"><a className={styles.confirmButtonWarm}>Nos produits</a></Link>
-              <button className={styles.confirmButtonCold} onClick={executeScroll}>Notre histoire</button>
+              <Link href="/shop"><a className={styles.confirmButtonWarm}>Je commande !</a></Link>
             </div>
           </div>
         </div>
       </div>
 
-      <div className={`${styles.container} px-6`} ref={historyRef}>
-        <section className="bg-white-100 border-b py-12">
+      <div ref={historyRef}>
+        <section className="bg-ousiaBack py-12">
           <div className="container max-w-5xl mx-auto m-8">
             <h2 className={styles.title} >
-              Pourquoi Ousia ?
+              Ousia
             </h2>
             <div className={styles.divider}></div>
-            <div className="flex flex-row flex-wrap items-center py-20">
+            <div className="flex flex-row flex-wrap items-center pt-20 pb-12">
               <div className="flex-auto sm:flex-1 px-2 tracking-wider">
-                <p className="text-gray-600 mb-8">
-                  L'apéritif, moment convivial et rassembleur par essence est trop souvent lié à la consommation d'alcool. Pourtant, de nombreuses personnes ne peuvent pas ou ne veulent pas boire d'alcool et n'ont pas le choix d'une vraie expérience alternative
-                </p>
-                <p className="text-gray-600 mb-8">
-                  Ousia, du grec "οὐσία", désigne l'essence des choses en philosophie. Parce que, pour nous, l'essence même de l'apéritif n'est pas la consommation d'alcool mais bien de permettre à tous de se retrouver dans un moment de convivialité partagée.
+                <p className="text-gray-600 mb-8 text-center">
+                  Ousia, marque française qui se traduit par “l’essence même des choses” en grec, vous propose de revenir à l’essence même de l’apéritif, la CONVIVIALITÉ, avec sa première gamme de cocktails naturels sans alcool et directement prêts à boire.
                 </p>
               </div>
-              <div className="flex-auto sm:flex-1 px-2 filter drop-shadow-lg">
+              <div className="flex-auto sm:flex-1 px-3 filter drop-shadow-lg">
                 <Image
-                src="/ousia-pic.jpeg"
+                src="/ousia-pic.png"
                 alt="Picture of the author"
-                width={500}
-                height={500}
+                width={1000}
+                height={830}
                 className="rounded"
                 />
               </div>
@@ -85,65 +82,40 @@ export default function Home() {
             </div>
           </section>
         </div>
-        <section className="bg-ousiaBlue-light py-12">
+        <section className="bg-ousiaBack py-12">
           <div className={styles.container}>
           <div className="max-w-5xl mx-auto">
             <h2 className={styles.title}>
-              La marque
+              Nos produits sont
             </h2>
             <div className={styles.divider}></div>
             <div className="flex flex-row flex-wrap items-center py-20">
-              <div className="flex-auto sm:flex-1 px-2 filter drop-shadow-lg">
+              <div className="flex-auto sm:flex-1 px-2 filter">
                 <Image
-                  src="/jumbotron.jpg"
+                  src="/visual.png"
                   alt="Ousia products"
-                  width={500}
-                  height={500}
+                  width={2000}
+                  height={800}
                   className="rounded"
                 />
-              </div>
-              <div className="flex-auto sm:flex-1 px-20">
-                <div className="mx-auto leading-7">
-                  <p className="text-xl pb-8">Une boisson <span className="font-bold text-ousiaBlue">Ousia</span> c'est...</p>
-                  <ul>
-                    <li className="list-none px-3 m-2">Sans alcool 🍸</li>
-                    <li className="list-none px-3 m-2">Prêt à boire 🚀</li>
-                    <li className="list-none px-3 m-2">100% naturel 🌿</li>
-                    <li className="list-none px-3 m-2">Peu calorique ☀️</li>
-                    <li className="list-none px-3 m-2">Fait en France 🇫🇷</li>
-                  </ul>
-                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
-      <section className="py-12">
+      <section className="bg-ousiaBack py-12">
           <div className={styles.container}>
           <div className="max-w-5xl mx-auto">
             <h2 className={styles.title}>
-              Le mot des fondateurs
+              Une petite musique avec votre cocktail ?
             </h2>
             <div className={styles.divider}></div>
             <div className="flex flex-row flex-wrap items-center py-20">
             <div className="flex-auto sm:flex-1 px-2 tracking-wider">
-                <blockquote className={styles.blockquote}>
-                  Tous les trois, on aime bien prendre l'apéro. Mais ce qu'on aime avant tout c'est de le partager
-                  avec nos amis et familles autour de boissons sympas et de petites choses à manger.
-                  Aux différents stades de la vie où nous nous trouvons chacun, nous nous sommes vite rendus
-                  compte qu'il y avait de nombreuses situations dans lesquelles certaines personnes ne voulaient ou
-                  ne pouvaient pas boire d'alcool. Ce qui, parfois, peut entamer la convivialité partagée autour de ce
-                  moment.
-                </blockquote>
-            </div>
-            <div className="flex-auto sm:flex-1 px-2 filter drop-shadow-lg">
-              <Image
-                src="/ousiafounders.png"
-                alt="Picture of the author"
-                width={500}
-                height={500}
-                className="rounded"
-              />
+              <p className="text-gray-600 mb-8 pb-10">
+              Où que vous soyez, profitez d’un moment de convivialité avec vos proches et les cocktails Ousia. Pour parfaire le moment, profitez de notre playlist mise à jour tous les mois en cliquant là ou en scannant le QR code au dos de votre bouteille !
+              </p>
+              <Link href="https://open.spotify.com/playlist/7ueYl3RFyLjgk9oClQJxK1?si=JHWD2lKGTUq4xxTjaL8dfA&dl_branch=1"><a className={styles.confirmButtonWarm}>La playlist !</a></Link>
             </div>
           </div>
         </div>

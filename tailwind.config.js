@@ -22,6 +22,9 @@ module.exports = {
           light: '#FEF094',
           DEFAULT: '#FFCB49'
         },
+        ousiaBack: {
+          DEFAULT: '#F4ECCB'
+        }
       }
     },
   },
