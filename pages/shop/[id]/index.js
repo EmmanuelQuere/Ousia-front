@@ -94,7 +94,9 @@ const Item = ({ item }) => {
                                 </a>
                                 </span>
                             </div>
-                            <p className="leading-relaxed">{item.description}</p>
+                            {
+                                item.description.split('/n/n')[0] ? <p className="leading-relaxed">{item.description.split('/n/n')[0]}</p> : ""
+                            }
                             <div className="flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5">
                                 <div className="flex items-center">
                                     <span className="mr-3">Quantité</span>
@@ -104,6 +106,12 @@ const Item = ({ item }) => {
                                         <option>2</option>
                                         <option>3</option>
                                         <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                        <option>7</option>
+                                        <option>8</option>
+                                        <option>9</option>
+                                        <option>10</option>
                                         </select>
                                         <span className="absolute right-0 top-0 h-full w-10 text-center text-gray-600 pointer-events-none flex items-center justify-center">
                                         <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-4 h-4" viewBox="0 0 24 24">
@@ -111,7 +119,7 @@ const Item = ({ item }) => {
                                         </svg>
                                         </span>
                                     </div>
-                                    <span className="pl-3">Lot de 6 bouteilles</span>
+                                    <span className="pl-3">Lot(s) de 12 bouteilles de 27,5cL</span>
                                 </div>
                             </div>
                             
@@ -119,6 +127,12 @@ const Item = ({ item }) => {
                                 <span className="title-font font-medium text-2xl text-gray-900">{item.price} €</span>
                                 <button className="flex ml-8 sm:ml-auto text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded" onClick={addToCart}>Ajouter au panier</button>
                             </div>
+                            {
+                                item.description.split('/n/n')[1] ? <p className="leading-relaxed">{item.description.split('/n/n')[1]}</p> : ""
+                            }
+                            {
+                                item.description.split('/n/n')[2] ? <p className="leading-relaxed">{item.description.split('/n/n')[2]}</p> : ""
+                            }
                         </div>
                     </div>
                 </div>

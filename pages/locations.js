@@ -50,7 +50,7 @@ const Locations = ({ stores }) => {
   };
   
   const markers = stores.map((marker, index) => {
-    const image = marker.category === "retail" ? <img src="icons/logo_blue.png" style={{ width:"40px"}}></img> : <img src="icons/logo_yellow.png" style={{ width:"40px"}}></img>
+    const image = marker.category === "retail" ? <img src="icons/shop.png" style={{ width:"40px"}}></img> : <img src="icons/cocktail.png" style={{ width:"40px"}}></img>
     return (
       <Marker
         key={`marker_${index}`}
@@ -69,9 +69,9 @@ const Locations = ({ stores }) => {
       <div className={styles.divider}></div>
       <p className="my-5">Retrouvez les produits Ousia dans une boutique proche de chez vous ! 🍹</p>
       <div className="flex mb-10 items-center">
-        <img src="icons/logo_blue.png" style={{ width: "40px" }} className="mx-3"></img>
+        <img src="icons/shop.png" style={{ width: "40px" }} className="mx-3"></img>
         <span className="text-sm mr-12">Où acheter nos produits</span>
-        <img src="icons/logo_yellow.png" style={{ width: "40px" }} className="mx-3"></img>
+        <img src="icons/cocktail.png" style={{ width: "40px" }} className="mx-3"></img>
         <span className="text-sm">Où déguster nos produits</span>
       </div>
 
