@@ -9,7 +9,7 @@ const Footer = () => {
     return (
 
         <>
-            <div className="bg-ousiaBlue text-white pb-4 mt-20">
+            <div className="bg-ousiaBack text-black pb-4">
                 <div className="mx-auto container pt-4 lg:pt-10 flex flex-col items-center justify-center">
                     <div>
                         <Image src="/logo.png" width={92} height={92} viewBox="0 0 79 92" fill="none" />
@@ -29,9 +29,8 @@ const Footer = () => {
                     </div>
                     <div>
                         <ul className="flex content-center justify-center flex-wrap">
-                            <li className=" md:mr-6 cursor-pointer pt-4 lg:py-0 hover:text-ousiaBlue-light"><Link href="/about"><a><FontAwesomeIcon icon={faBullseye} className="fa-lg mx-2 " />Notre mission</a></Link></li>
                             <li className=" md:mr-6 cursor-pointer pt-4 lg:py-0 hover:text-ousiaBlue-light"><Link href="/locations"><a><FontAwesomeIcon icon={faStore} className="fa-lg mx-2" />Nos points de vente</a></Link></li>
-                            <li className=" md:mr-6 cursor-pointer pt-4 lg:py-0 hover:text-ousiaBlue-light"><a href="mailto:ousia@ousia.com"><FontAwesomeIcon icon={faEnvelope} className="fa-lg mx-2" />Contactez-nous</a></li>
+                            <li className=" md:mr-6 cursor-pointer pt-4 lg:py-0 hover:text-ousiaBlue-light"><a href="mailto:contact@ousiadrinks.com"><FontAwesomeIcon icon={faEnvelope} className="fa-lg mx-2" />Contactez-nous</a></li>
                         </ul>
                     </div>
                     <div className="my-6">
