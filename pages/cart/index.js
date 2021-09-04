@@ -6,7 +6,6 @@ import { useAlert, types } from 'react-alert';
 
 const Cart = () => {
   const [currentUserCart, setCurrentUserCart] = React.useState([]);
-  const [deliveryPrice, setDeliveryPrice] = React.useState(10);
   const userToken = useSelector(state => state.token);
   const alert = useAlert();
 
@@ -81,10 +80,6 @@ const Cart = () => {
 
   const totalQuantity = (cart) => {
     return Object.values(cart).reduce((t, { quantity }) => t + quantity, 0)
-  }
-
-  const getSelectValue = (event) => {
-    setDeliveryPrice(Number(event.target.value))
   }
 
 
@@ -188,7 +183,7 @@ const Cart = () => {
           <div className="border-t mt-8">
             <div className="flex font-semibold justify-between py-6 text-sm uppercase">
               <span>Total</span>
-              <span>{totalPrice(currentUserCart) + deliveryPrice} €</span>
+              <span>{`${totalPrice(currentUserCart)} €`}</span>
             </div>
             {userToken ?
               <Link href={'/cart/recap'}>
