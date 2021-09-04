@@ -24,8 +24,7 @@ const ProductCardEven = (props) => {
         <div className="min-h-62 my-3">
           <div style={{visibility: isLoading? "hidden" : "visible"}}>
             <img className="mx-auto beforeload" src={props.item.images[0]} ref={image} alt="" onLoad={onLoad} />
-
-            <div className="lds-ellipsis mx-auto opacity-100" style={{display: isLoading? "block" : "none", visibility: "visible"}}></div></div><div></div><div></div><div></div></div>
+            <div className="lds-ellipsis mx-auto opacity-100" style={{display: isLoading? "block" : "none", visibility: "visible"}}><div></div><div></div><div></div><div></div></div>
           </div>
         </div>
         <h2 className="font-bold mb-5 text-4xl text-gray-800">{props.item.name}</h2>
