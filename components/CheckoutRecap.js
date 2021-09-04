@@ -35,18 +35,14 @@ const CheckoutRecap = ({ handleClick, cartDetails }) => {
               <tbody>
                 {cartDetails.map(cartItem => <RecapProduct key={cartItem.id} product={cartItem} />)}
                 <tr>
-                  <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">Frais de livraison</td>
-                  <td colSpan="3" className="px-5 py-5 border-b border-gray-200 bg-white text-sm">10 €</td>
-                </tr>
-                <tr>
                   <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm font-bold">Total de la commande</td>
-                  <td colSpan="3" className="px-5 py-5 border-b border-gray-200 bg-white text-sm font-bold">{totalPrice(cartDetails)+10} €</td>
+                  <td colSpan="3" className="px-5 py-5 border-b border-gray-200 bg-white text-sm font-bold">{totalPrice(cartDetails)} €</td>
                 </tr>
               </tbody>
             </table>
           </div>
           </div>
-        
+
         <button className="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase p-10 w-1/8 sm:w-1/2" type="button" id="checkout-button" role="link" onClick={handleClick}>
           Payer ma commande
         </button>
