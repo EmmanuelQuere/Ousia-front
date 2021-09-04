@@ -17,7 +17,9 @@ const Navigation = () => {
         <nav className="sticky top-0 p-2 z-50 bg-white backdrop-filter backdrop-blur-lg bg-opacity-80 border-b border-gray-200 firefox:bg-opacity-20">
         <div className="mx-auto">
         <div className="flex flex-wrap items-center justify-around text-gray-900">
-          <Link href="/"><a className={styles.logo}>Ousia</a></Link>
+          <Link href="/">
+            <img src="/ousia-logo.png" alt="Ousia Logo" width="80" height="30" className="cursor-pointer"/>
+          </Link>
             <div className="flex flex-wrap items-center justify-center p-2 space-x-6 text-sm font-semibold">
               <Link href="/shop"><a className="hover:text-gray-700">Boutique</a></Link>
               <Link href="/locations"><a className="hover:text-gray-700">Points de vente</a></Link>
@@ -39,7 +41,9 @@ const Navigation = () => {
       <nav className="sticky top-0 p-2 z-50 bg-white backdrop-filter backdrop-blur-lg bg-opacity-80 border-b border-gray-200 firefox:bg-opacity-20">
         <div className="mx-auto">
         <div className="flex flex-wrap items-center justify-around text-gray-900">
-          <Link href="/"><a className={styles.logo}>Ousia</a></Link>
+          <Link href="/">
+            <img src="/ousia-logo.png" alt="Ousia Logo" width="80" height="30" className="cursor-pointer"/>
+          </Link>
             <div className="flex flex-wrap items-center justify-center p-2 space-x-6 text-sm font-semibold">
               <Link href="/shop"><a className="hover:text-gray-700">E-shop</a></Link>
               <Link href="/about"><a className="hover:text-gray-700">A propos</a></Link>

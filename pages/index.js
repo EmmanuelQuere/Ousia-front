@@ -12,7 +12,7 @@ export default function Home() {
     shouldShowModalRef.current = data;
     _setShouldShowModal(data);
   }
- 
+
   const [scrollPosition, setScrollPosition] = useState(0);
   const handleScroll = () => {
     const currentPosition = window.pageYOffset;
@@ -40,7 +40,7 @@ export default function Home() {
   const historyRef = useRef(null)
   const executeScroll = () => historyRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' })
   const menuRef = useRef(null)
-  const executeMenuScroll = () => menuRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' }) 
+  const executeMenuScroll = () => menuRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' })
 
   return (
     <>
@@ -66,15 +66,16 @@ export default function Home() {
             <div className="flex flex-row flex-wrap items-center pt-20 pb-12">
               <div className="flex-auto sm:flex-1 px-2 tracking-wider">
                 <p className="text-gray-600 mb-8 text-center">
-                  Ousia, marque française qui se traduit par “l’essence même des choses” en grec, vous propose de revenir à l’essence même de l’apéritif, la CONVIVIALITÉ, avec sa première gamme de cocktails naturels sans alcool et directement prêts à boire.
+                  Ousia se traduit du grec par "l'essence même des choses" en philosophie. Avec sa première gamme de cocktails naturels sans alcool et directement prêts à boire, Ousia vous propose de revenir à l'essence même de l'apéritif : la convivialité d'un moment partagé !
                 </p>
               </div>
               <div className="flex-auto sm:flex-1 px-3 filter drop-shadow-lg">
                 <Image
-                src="/ousia-pic.png"
-                alt="Picture of the author"
+                src="/ousia-pic.jpg"
+                alt="Ousia bottles"
+                layout="intrinsic"
                 width={1000}
-                height={830}
+                height={750}
                 className="rounded"
                 />
               </div>
