@@ -23,8 +23,7 @@ const ProductCardOdd = (props) => {
       <article className="flex flex-col shadow-xl mx-auto max-w-sm bg-ousiaYellow-light py-12 px-12 transform duration-500 hover:-translate-y-2 cursor-pointer max-h-190 rounded-md tracking-wider">
         <div className="min-h-62 my-3">
         <div style={{visibility: isLoading? "hidden" : "visible"}}>
-          <img className="mx-auto beforeload" src={props.item.images[0]} ref={image} alt="" onLoad={onLoad}>
-          </img>
+          <img className="mx-auto beforeload" src={props.item.images[0]} ref={image} alt="" onLoad={onLoad}/>
           <div className="lds-ellipsis mx-auto opacity-100" style={{display: isLoading? "block" : "none", visibility: "visible"}}><div></div><div></div><div></div><div></div></div>
         </div>
         </div>
