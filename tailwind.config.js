@@ -19,7 +19,7 @@ module.exports = {
           DEFAULT: '#34B658'
         },
         ousiaYellow: {
-          light: '#FEF094',
+          light: '#FFE400',
           DEFAULT: '#FFCB49'
         },
         ousiaBack: {

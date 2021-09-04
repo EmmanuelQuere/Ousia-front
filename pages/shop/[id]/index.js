@@ -2,6 +2,8 @@ import { useRef } from 'react';
 import { useSelector } from 'react-redux';
 import Breadcrumbs from '../../../components/BreadCrumbs';
 import { useAlert, types } from 'react-alert';
+import { faFacebookF, faLinkedin, faInstagram } from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export const getServerSidePaths = async () => {
 
@@ -75,24 +77,16 @@ const Item = ({ item }) => {
                         <img alt="ecommerce" className="lg:w-1/2 w-full object-cover object-center rounded" src={item.images[0]}></img>
                         <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
                             <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">{item.name}</h1>
-                            <div className="flex mb-4">
-                                <span className="flex py-2">
-                                <a className="text-gray-500">
-                                    <svg fill="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-5 h-5" viewBox="0 0 24 24">
-                                    <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
-                                    </svg>
+                            <div className="flex mb-3">
+                                <a className="btn btn-outline-light btn-floating m-1" href="https://www.facebook.com/ousiadrinks" role="button">
+                                  <FontAwesomeIcon icon={faFacebookF} className=" text-gray-500"  />
                                 </a>
-                                <a className="ml-2 text-gray-500">
-                                    <svg fill="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-5 h-5" viewBox="0 0 24 24">
-                                    <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
-                                    </svg>
+                                <a className="btn btn-outline-light btn-floating m-1" href="https://www.linkedin.com/company/ousiadrinks/" role="button">
+                                  <FontAwesomeIcon icon={faLinkedin} className="text-gray-500" />
                                 </a>
-                                <a className="ml-2 text-gray-500">
-                                    <svg fill="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-5 h-5" viewBox="0 0 24 24">
-                                    <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"></path>
-                                    </svg>
+                                <a className="btn btn-outline-light btn-floating m-1" href="https://www.instagram.com/ousiadrinks/" role="button">
+                                  <FontAwesomeIcon icon={faInstagram} className="text-gray-500" />
                                 </a>
-                                </span>
                             </div>
                             {
                                 item.description.split('/n/n')[0] ? <p className="leading-relaxed">{item.description.split('/n/n')[0]}</p> : ""
@@ -122,16 +116,16 @@ const Item = ({ item }) => {
                                     <span className="pl-3">Lot(s) de 12 bouteilles de 27,5cL</span>
                                 </div>
                             </div>
-                            
+
                             <div className="sm:flex text-center space-y-4 sm:space-y-0">
                                 <span className="title-font font-medium text-2xl text-gray-900">{item.price} €</span>
                                 <button className="flex ml-8 sm:ml-auto text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded" onClick={addToCart}>Ajouter au panier</button>
                             </div>
                             {
-                                item.description.split('/n/n')[1] ? <p className="leading-relaxed">{item.description.split('/n/n')[1]}</p> : ""
+                                item.description.split('/n/n')[1] ? <dl><dt className="font-bold">Ingrédients :</dt><dd>{item.description.split('/n/n')[1]}</dd></dl> : ""
                             }
                             {
-                                item.description.split('/n/n')[2] ? <p className="leading-relaxed">{item.description.split('/n/n')[2]}</p> : ""
+                                item.description.split('/n/n')[2] ? <dl><dt className="font-bold">Informations nutritionnelles pour 100ml :</dt><dd>{item.description.split('/n/n')[1]}</dd></dl> : ""
                             }
                         </div>
                     </div>

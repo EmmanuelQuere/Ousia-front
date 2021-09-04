@@ -14,7 +14,7 @@ const About = () => {
         <div className="flex flex-row flex-wrap items-center">
           <div className="flex-auto sm:flex-1 px-2 filter drop-shadow-lg">
             <Image
-              src="/about-ousia.JPG"
+              src="/about-ousia.jpg"
               alt="Picture of the founders"
               width={500}
               height={500}
@@ -36,10 +36,10 @@ const About = () => {
       <div className="flex flex-row flex-wrap items-center">
         <div className="flex-auto sm:flex-1 px-2">
           <blockquote className={styles.blockquote}>
-          Ousia c’est la rencontre de trois personnes, Stella, Guillaume et Gonzague, qui partagent le même amour de l’apéritif. Ce qu’ils aiment par-dessus tout c’est se retrouver entourés de leurs amis et de leurs familles dans des moments de convivialité partagée. 
+          Ousia c’est la rencontre de trois personnes, Stella, Guillaume et Gonzague, qui partagent le même amour de l’apéritif. Ce qu’ils aiment par-dessus tout c’est se retrouver entourés de leurs amis et de leurs familles dans des moments de convivialité partagée.
           Ils se sont vite rendu compte que quand on est tous ensemble à l’apéritif, tout le monde n’a pas toujours envie ou ne peut tout simplement pas consommer d’alcool, et ce, pour de multiples raisons. Les alternatives étant trop peu limitées, entre les sodas trop sucrés ou les jus de fruits pas très festifs, ils ont eu envie de créer les boissons parfaites qui permettent à tous de profiter de ces instants festifs avec autant de plaisir !
-          L’idée de Ousia est d’avoir une gamme de cocktails sans alcool procurant les mêmes sensations et émotions que les équivalents alcoolisés. 
-          
+          L’idée de Ousia est d’avoir une gamme de cocktails sans alcool procurant les mêmes sensations et émotions que les équivalents alcoolisés.
+
           Alors, prêts à vous laisser bluffer ?
           </blockquote>
         </div>
