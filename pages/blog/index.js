@@ -4,7 +4,7 @@ import { Client, options, apiEndpoint } from './../../prismic.config';
 import styles from './../../styles/Blog.module.scss';
 import ArticlePreview from './../../components/blog/ArticlePreview';
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const document = await Client().query(Prismic.Predicates.at('document.type', 'post'));
   const res = document.results
   return {
