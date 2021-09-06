@@ -6,28 +6,14 @@ import { RichText } from 'prismic-reactjs';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import styles from './../../../styles/Blog.module.scss';
+import { useRouter } from 'next/router';
 import BlogBreadcrumbs from './../../../components/blog/BlogBreadcrumbs';
 import BlogTextComponent from './../../../components/blog/BlogTextComponent';
 import BlogImageComponent from './../../../components/blog/BlogImageComponent';
 import BlogQuoteComponent from './../../../components/blog/BlogQuoteComponent';
 import BlogEmbedComponent from './../../../components/blog/BlogEmbedComponent';
 
-export async function getStaticPaths() {
-  const document = await Client().query(Prismic.Predicates.at('document.type', 'post'));
-  const res = document.results
-
-  const paths = res.map(article => {
-      return {
-          params: {uid: article.uid}
-      }
-  });
-  return {
-        paths,
-        fallback: false
-    };
-};
-
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
   const uid = context.params.uid
   const res = await Client().getByUID('post', `${uid}`);
   return {
@@ -38,6 +24,9 @@ export async function getStaticProps(context) {
 };
 
 const Article = ({ res }) => {
+  const router = useRouter();
+  const { uid } = router.query;
+
   const determineElement = (type) => {
     if (!components[type]) {
       console.warn(`${type} : la gestion de ce type d'élément n'est pas prévue.`);
